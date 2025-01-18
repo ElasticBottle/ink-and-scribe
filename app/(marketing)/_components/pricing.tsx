@@ -17,6 +17,7 @@ export function Pricing() {
   const handleToggle = () => {
     setIsMonthly(!isMonthly);
   };
+  console.log("isDesktop", isDesktop);
 
   return (
     <Section
@@ -43,7 +44,7 @@ export function Pricing() {
                     // Scale all plans down to 0.94 except for the middle plan (index 1) which is kept at 1
                     scale: index === 1 ? 1 : 0.94,
                   }
-                : {}
+                : { y: 0 }
             }
             viewport={{ once: true }}
             transition={{

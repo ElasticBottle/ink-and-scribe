@@ -12,7 +12,7 @@ export function Cta() {
       id="cta"
       title={siteConfig.cta.title}
       subtitle={siteConfig.cta.subtitle}
-      className="bg-primary/10 py-16"
+      className="bg-primary/10 py-16 xl:rounded-lg"
     >
       <div className="flex items-center justify-center pt-4">
         <Link

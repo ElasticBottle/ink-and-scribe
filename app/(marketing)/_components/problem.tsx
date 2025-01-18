@@ -13,12 +13,14 @@ export default function Component() {
         {siteConfig.problems.items.map((problem, index) => (
           <BlurFade key={problem.title} delay={0.2 + index * 0.2} inView>
             <Card className="border-none bg-background shadow-none">
-              <CardContent className="space-y-4 p-0 md:p-6">
+              <CardContent className="flex flex-col items-center space-y-4 p-0 md:items-start md:p-6">
                 <div className="flex size-12 items-center justify-center rounded-full bg-primary/10">
                   <problem.icon className="size-6 text-primary" />
                 </div>
                 <h3 className="font-semibold text-xl">{problem.title}</h3>
-                <p className="text-muted-foreground">{problem.description}</p>
+                <p className="text-center text-muted-foreground md:text-left">
+                  {problem.description}
+                </p>
               </CardContent>
             </Card>
           </BlurFade>

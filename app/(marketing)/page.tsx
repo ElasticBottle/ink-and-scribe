@@ -20,21 +20,21 @@ export default function Home() {
       <Announcement />
       <Spacer className="h-8" />
       <Hero />
-      <Spacer className="h-8 md:h-24" />
+      <Spacer className="h-20 md:h-24" />
       <Logos />
-      <Spacer className="h-8 md:h-24" />
+      <Spacer className="h-20 md:h-24" />
       <Problem />
-      <Spacer className="h-8 md:h-24" />
+      <Spacer className="h-20 md:h-24" />
       <Solution />
-      <Spacer className="h-8 md:h-24" />
+      <Spacer className="h-20 md:h-24" />
       <TestimonialsCarousel />
-      <Spacer className="h-8 md:h-24" />
+      <Spacer className="h-20 md:h-24" />
       <Pricing />
-      <Spacer className="h-8 md:h-24" />
+      <Spacer className="h-20 md:h-24" />
       <FAQ />
-      <Spacer className="h-8 md:h-24" />
+      <Spacer className="h-20 md:h-24" />
       <Cta />
-      <Spacer className="h-8 md:h-24" />
+      <Spacer className="h-20 md:h-24" />
       <Blog />
       <Footer />
     </main>

@@ -15,7 +15,7 @@ export async function Blog() {
   return (
     <Section subtitle={blogConfig.title} description={blogConfig.description}>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {articles.map((data, idx) => (
+        {articles.slice(0, 3).map((data, idx) => (
           <BlogCard key={data.slug} data={data} priority={idx <= 1} />
         ))}
       </div>

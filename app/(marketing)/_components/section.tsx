@@ -24,19 +24,19 @@ export function Section({
       className={cn("container relative max-w-7xl px-4", className)}
     >
       {(title || subtitle || description) && (
-        <div className="flex w-full flex-col space-y-4 pb-6 md:items-center ">
+        <div className="flex w-full flex-col items-center space-y-4 pb-6 ">
           {title && (
-            <h2 className="font-medium font-mono text-primary text-sm uppercase tracking-wider">
+            <h2 className="text-center font-medium font-mono text-primary text-sm uppercase tracking-wider">
               {title}
             </h2>
           )}
           {subtitle && (
-            <h3 className="max-w-xs font-semibold text-3xl sm:max-w-none sm:text-4xl md:text-5xl">
+            <h3 className="max-w-xs text-center font-semibold text-3xl sm:max-w-none sm:text-4xl md:text-5xl">
               {subtitle}
             </h3>
           )}
           {description && (
-            <p className="max-w-2xl text-lg text-muted-foreground leading-8 md:text-center">
+            <p className="max-w-2xl text-center text-lg text-muted-foreground leading-8">
               {description}
             </p>
           )}
