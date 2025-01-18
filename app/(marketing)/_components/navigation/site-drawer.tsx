@@ -41,16 +41,26 @@ export function SiteDrawer() {
           </div>
           <nav>
             <ul className="pt-7 text-left">
-              {siteConfig.header.map((item) => (
-                <li key={item.label} className="py-1.5">
-                  <Button
-                    className="font-semibold"
-                    onClick={() => handleNavClick(item.href)}
-                  >
-                    {item.label}
-                  </Button>
-                </li>
-              ))}
+              {siteConfig.header.map((item) => {
+                if (item.variant === "dropdown") {
+                  return null;
+                }
+                return (
+                  <li key={item.label} className="py-1.5">
+                    <Button
+                      className="font-semibold"
+                      onClick={() => handleNavClick(item.href)}
+                      variant={
+                        item.buttonVariant === "navigation"
+                          ? "ghost"
+                          : item.buttonVariant
+                      }
+                    >
+                      {item.label}
+                    </Button>
+                  </li>
+                );
+              })}
             </ul>
           </nav>
         </DrawerHeader>
