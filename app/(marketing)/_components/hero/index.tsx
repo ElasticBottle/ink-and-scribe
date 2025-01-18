@@ -1,6 +1,6 @@
 "use client";
 import { Spacer } from "~/components/ui/spacer";
-import Section from "../section";
+import { Section } from "../section";
 import { HeroCTA } from "./cta";
 import { HeroShowcase } from "./showcase";
 import { HeroTitle } from "./title";
@@ -14,7 +14,7 @@ export function Hero() {
       <HeroTitle />
       <Spacer className="h-6" />
       <HeroCTA />
-      <Spacer className="h-16" />
+      <Spacer className="h-8 md:h-16" />
       <HeroShowcase />
     </Section>
   );

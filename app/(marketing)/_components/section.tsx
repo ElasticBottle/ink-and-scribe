@@ -2,14 +2,14 @@ import { cn } from "~/lib/utils";
 
 interface SectionProps {
   id?: string;
-  title?: string;
-  subtitle?: string;
-  description?: string;
+  title?: string | undefined;
+  subtitle?: string | undefined;
+  description?: string | undefined;
   children?: React.ReactNode;
   className?: string;
 }
 
-export default function Section({
+export function Section({
   id,
   title,
   subtitle,

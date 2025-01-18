@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { TailwindIndicator } from "~/components/tailwind-indicator";
+import { TailwindIndicator } from "~/components/ui/tailwind-indicator";
 import { ThemeProvider } from "~/components/ui/theme";
 import { cn, constructMetadata } from "~/lib/utils";
 import "~/styles/globals.css";

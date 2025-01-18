@@ -1,36 +1,24 @@
 import Marquee from "components/ui/marquee";
 import Image from "next/image";
-
-const companies = [
-  {
-    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIOj-PJ7_F-RpOkFwiIxrvgue_UDHs_lJbyQ&s",
-    name: "Oxford",
-  },
-  {
-    logo: "https://i0.wp.com/thecustodian.ca/wp-content/uploads/2022/02/waterloo.png?fit=600%2C600&ssl=1",
-    name: "Waterloo",
-  },
-  {
-    logo: "https://upload.wikimedia.org/wikipedia/en/b/b9/NUS_coat_of_arms.svg",
-    name: "NUS",
-  },
-];
+import { siteConfig } from "~/lib/config";
 
 export function Logos() {
+  if (!siteConfig.socialProof) return null;
+
   return (
     <section id="logos">
-      <div className="container mx-auto px-4 py-12 md:px-8">
-        <h3 className="text-center font-semibold text-gray-500 text-sm">
+      <div className="container mx-auto px-4 md:px-8">
+        <h3 className="text-center font-semibold text-muted-foreground text-sm">
           With a team you can trust
         </h3>
-        <div className="relative mt-6">
+        <div className="relative pt-6">
           <Marquee className="max-w-full [--duration:40s]" repeat={6}>
-            {companies.map(({ logo, name }) => (
+            {siteConfig.socialProof.icons.map(({ href, name }) => (
               <Image
                 key={name}
                 width={56}
                 height={56}
-                src={logo}
+                src={href}
                 className="h-16 w-16 opacity-40 grayscale"
                 alt={name}
               />

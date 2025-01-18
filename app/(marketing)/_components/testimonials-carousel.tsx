@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { MdOutlineFormatQuote } from "react-icons/md";
-import Section from "~/app/(marketing)/_components/section";
 import BlurFade from "~/components/ui/blur-fade";
 import {
   Carousel,
@@ -9,6 +8,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "~/components/ui/carousel";
+import { Section } from "./section";
 
 const companies = [
   "Google",

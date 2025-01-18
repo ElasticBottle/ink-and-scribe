@@ -1,4 +1,3 @@
-import Section from "~/app/(marketing)/_components/section";
 import {
   Accordion,
   AccordionContent,
@@ -6,17 +5,19 @@ import {
   AccordionTrigger,
 } from "~/components/ui/accordion";
 import { siteConfig } from "~/lib/config";
+import { Section } from "./section";
 
 export default function FAQ() {
+  if (!siteConfig.faq) return null;
   return (
-    <Section title="FAQ" subtitle="Frequently asked questions">
+    <Section title={siteConfig.faq.title} subtitle={siteConfig.faq.subtitle}>
       <div className="mx-auto my-12 md:max-w-[800px]">
         <Accordion
           type="single"
           collapsible
           className="flex w-full flex-col items-center justify-center space-y-2"
         >
-          {siteConfig.faqs.map((faq) => (
+          {siteConfig.faq.items.map((faq) => (
             <AccordionItem
               key={faq.question}
               value={faq.question}
@@ -30,12 +31,12 @@ export default function FAQ() {
           ))}
         </Accordion>
       </div>
-      <h4 className="mb-12 text-center font-medium text-foreground/80 text-sm tracking-tight">
+      <p className="text-center font-medium text-muted-foreground text-sm tracking-tight">
         Still have questions? Email us at{" "}
         <a href={`mailto:${siteConfig.links.email}`} className="underline">
           {siteConfig.links.email}
         </a>
-      </h4>
+      </p>
     </Section>
   );
 }
