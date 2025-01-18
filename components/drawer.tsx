@@ -32,10 +32,10 @@ export default function drawerDemo() {
           </div>
           <nav>
             <ul className="mt-7 text-left">
-              {siteConfig.header.map((item, index) => (
-                <li key={index} className="my-3">
-                  {item.trigger ? (
-                    <span className="font-semibold">{item.trigger}</span>
+              {siteConfig.header.map((item) => (
+                <li key={item.label} className="my-3">
+                  {item.variant === "dropdown" ? (
+                    <span className="font-semibold">{item.label}</span>
                   ) : (
                     <Link href={item.href || ""} className="font-semibold">
                       {item.label}

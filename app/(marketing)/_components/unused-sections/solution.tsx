@@ -5,7 +5,7 @@ import FlickeringGrid from "components/ui/flickering-grid";
 import Ripple from "components/ui/ripple";
 import { motion } from "framer-motion";
 import { cn } from "lib/utils";
-import Section from "~/app/(marketing)/_components/section";
+import { Section } from "../section";
 
 const features = [
   {
@@ -93,7 +93,7 @@ export default function Component() {
       <div className="mx-auto mt-16 grid max-w-sm grid-cols-1 gap-6 text-gray-500 md:max-w-3xl md:grid-cols-2 md:grid-rows-3 xl:max-w-6xl xl:auto-rows-fr xl:grid-cols-3 xl:grid-rows-2">
         {features.map((feature, index) => (
           <motion.div
-            key={index}
+            key={feature.title}
             className={cn(
               "group relative items-start overflow-hidden rounded-2xl bg-neutral-50 p-6 dark:bg-neutral-800",
               feature.className,
@@ -116,7 +116,7 @@ export default function Component() {
               <p className="text-foreground">{feature.description}</p>
             </div>
             {feature.content}
-            <div className="pointer-events-none absolute bottom-0 left-0 h-32 w-full bg-gradient-to-t from-neutral-50 dark:from-neutral-900"></div>
+            <div className="pointer-events-none absolute bottom-0 left-0 h-32 w-full bg-gradient-to-t from-neutral-50 dark:from-neutral-900" />
           </motion.div>
         ))}
       </div>

@@ -5,7 +5,8 @@ import { motion } from "framer-motion";
 import { cn } from "lib/utils";
 import { Star } from "lucide-react";
 import Image from "next/image";
-import Section from "~/app/(marketing)/_components/section";
+import type { HTMLAttributes } from "react";
+import { Section } from "../section";
 
 export function Highlight({
   children,
@@ -32,7 +33,6 @@ export interface TestimonialCardProps {
   img?: string;
   description: React.ReactNode;
   className?: string;
-  [key: string]: any;
 }
 
 export function TestimonialCard({
@@ -42,7 +42,7 @@ export function TestimonialCard({
   role,
   className,
   ...props // Capture the rest of the props
-}: TestimonialCardProps) {
+}: TestimonialCardProps & HTMLAttributes<HTMLDivElement>) {
   return (
     <div
       className={cn(
@@ -292,16 +292,16 @@ export default function Testimonials() {
             .map((_, i) => (
               <Marquee
                 vertical
-                key={i}
+                key={`${i}-${_}`}
                 className={cn({
                   "[--duration:60s]": i === 1,
                   "[--duration:30s]": i === 2,
                   "[--duration:70s]": i === 3,
                 })}
               >
-                {testimonials.slice(i * 3, (i + 1) * 3).map((card, idx) => (
+                {testimonials.slice(i * 3, (i + 1) * 3).map((card) => (
                   <motion.div
-                    key={idx}
+                    key={card.name}
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
@@ -316,8 +316,8 @@ export default function Testimonials() {
               </Marquee>
             ))}
         </div>
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 w-full bg-gradient-to-t from-20% from-background"></div>
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-1/4 w-full bg-gradient-to-b from-20% from-background"></div>
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 w-full bg-gradient-to-t from-20% from-background" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-1/4 w-full bg-gradient-to-b from-20% from-background" />
       </div>
     </Section>
   );

@@ -31,7 +31,7 @@ export default function Component() {
         <div className="relative mx-auto max-w-2xl">
           <CarouselContent>
             {Array.from({ length: 7 }).map((_, index) => (
-              <CarouselItem key={index}>
+              <CarouselItem key={`${index}-${_}`}>
                 <div className="p-2 pb-5">
                   <div className="text-center">
                     <MdOutlineFormatQuote className="mx-auto my-4 text-4xl text-themeDarkGray" />
@@ -45,7 +45,6 @@ export default function Component() {
                         <Image
                           width={0}
                           height={40}
-                          key={index}
                           src={`https://cdn.magicui.design/companies/${
                             companies[index % companies.length]
                           }.svg`}
@@ -73,8 +72,8 @@ export default function Component() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <div className="pointer-events-none absolute inset-y-0 left-0 h-full w-2/12 bg-gradient-to-r from-background"></div>
-          <div className="pointer-events-none absolute inset-y-0 right-0 h-full w-2/12 bg-gradient-to-l from-background"></div>
+          <div className="pointer-events-none absolute inset-y-0 left-0 h-full w-2/12 bg-gradient-to-r from-background" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 h-full w-2/12 bg-gradient-to-l from-background" />
         </div>
         <div className="hidden md:block">
           <CarouselPrevious />
@@ -95,7 +94,7 @@ function getTestimonialQuote(index: number): string {
     "The continuous monitoring capabilities of nexus.ai give us peace of mind. We're always one step ahead in protecting our users' data.",
     "nexus.ai's compliance mapping feature has streamlined our security audit processes. It's an essential tool for maintaining trust with our users.",
   ];
-  return quotes[index % quotes.length];
+  return quotes[index % quotes.length] ?? "";
 }
 
 function getTestimonialName(index: number): string {
@@ -108,7 +107,7 @@ function getTestimonialName(index: number): string {
     "Linda Wu",
     "Carlos Gomez",
   ];
-  return names[index % names.length];
+  return names[index % names.length] ?? "";
 }
 
 function getTestimonialRole(index: number): string {
@@ -121,5 +120,5 @@ function getTestimonialRole(index: number): string {
     "Lead Security Architect",
     "Chief Technology Officer",
   ];
-  return roles[index % roles.length];
+  return roles[index % roles.length] ?? "";
 }

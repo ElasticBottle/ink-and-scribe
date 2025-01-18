@@ -15,7 +15,7 @@ export default function AvatarCircles({
     <div className={cn("-space-x-4 z-10 flex rtl:space-x-reverse", className)}>
       {avatarUrls.map((url, index) => (
         <img
-          key={index}
+          key={url}
           className="size-10 rounded-full border-2 border-white dark:border-gray-800"
           src={url}
           width={40}
