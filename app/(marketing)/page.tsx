@@ -1,9 +1,10 @@
-import Hero from "~/app/(marketing)/_components/hero";
 import Footer from "~/components/sections/footer";
 import Pricing from "~/components/sections/pricing";
 import TestimonialsCarousel from "~/components/sections/testimonials-carousel";
+import { Spacer } from "~/components/ui/spacer";
 import { Announcement } from "./_components/announcement";
 import FAQ from "./_components/faq";
+import { Hero } from "./_components/hero";
 import HowItWorks from "./_components/how-it-works";
 import { Logos } from "./_components/logos";
 import { Header } from "./_components/navigation/header";
@@ -14,7 +15,7 @@ export default function Home() {
   return (
     <main>
       <Header />
-      <div className="pt-24 md:pt-32 " />
+      <Spacer className="h-24 md:h-32" />
       <Announcement />
       <Hero />
       <Logos />

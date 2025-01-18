@@ -52,6 +52,21 @@ type SiteConfig = {
     title: string;
     href: string;
   };
+  hero: {
+    title: string[];
+    description: string;
+    cta: {
+      href: string;
+      label: string;
+      buttonVariant: ButtonProps["variant"];
+      subtitle?: string;
+    };
+    showcase: {
+      videoSrc?: string | undefined;
+      thumbnailSrc: string;
+      thumbnailAlt: string;
+    };
+  };
 };
 
 export const siteConfig: SiteConfig = {
@@ -147,6 +162,22 @@ export const siteConfig: SiteConfig = {
       label: "Blog",
     },
   ],
+  hero: {
+    title: ["Trademark applications", "in days", "not months"],
+    description:
+      "Secure your brand identity with confidence. Our agency helps you file trademarks quickly and accurately, eliminating paperwork and reducing registration time by up to 90%.",
+    cta: {
+      href: "/signup",
+      label: "Protect your brand now",
+      buttonVariant: "default",
+      subtitle: "Lowest rates guaranteed or your money back.",
+    },
+    showcase: {
+      videoSrc: undefined,
+      thumbnailSrc: "/dashboard.png",
+      thumbnailAlt: "Hero video",
+    },
+  },
   pricing: [
     {
       name: "BASIC",
