@@ -62,7 +62,7 @@ export function BasicForm() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="mx-auto max-w-3xl space-y-8 py-10"
+        className="mx-auto w-full max-w-3xl space-y-8"
       >
         <FormField
           control={form.control}
@@ -71,7 +71,12 @@ export function BasicForm() {
             <FormItem>
               <FormLabel>Full Name</FormLabel>
               <FormControl>
-                <Input placeholder="Aaron Yeo" type="text" {...field} />
+                <Input
+                  placeholder="Aaron Yeo"
+                  type="text"
+                  autoComplete="name"
+                  {...field}
+                />
               </FormControl>
               <FormDescription>
                 Your name as it appears in your ID
@@ -91,6 +96,7 @@ export function BasicForm() {
                 <Input
                   placeholder="aaronyeo@trademark.com"
                   type="email"
+                  autoComplete="email"
                   {...field}
                 />
               </FormControl>
@@ -114,8 +120,6 @@ export function BasicForm() {
                 <Switch
                   checked={field.value}
                   onCheckedChange={field.onChange}
-                  disabled
-                  aria-readonly
                 />
               </FormControl>
             </FormItem>

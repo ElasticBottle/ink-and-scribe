@@ -104,7 +104,7 @@ export const siteConfig: SiteConfig = {
     description:
       "Secure your brand identity with confidence. Our agency helps you file trademarks quickly and accurately, eliminating paperwork and reducing registration time by up to 90%.",
     cta: {
-      href: "/signup",
+      href: "/registration",
       label: "Protect your brand now",
       buttonVariant: "default",
       subtitle: "Lowest rates guaranteed or your money back.",
@@ -313,7 +313,7 @@ export const siteConfig: SiteConfig = {
     title: "Ready to get started?",
     subtitle: "Start your free trial today.",
     buttonText: "Get started for free",
-    href: "/signup",
+    href: "/registration",
   },
   footer: {
     privacyPolicy: "#",
