@@ -29,5 +29,5 @@
     "editor.defaultFormatter": "biomejs.biome"
   },
 
-  "cSpell.words": ["linkedin", "saas", "tiktok"]
+  "cSpell.words": ["linkedin", "saas", "tiktok", "valibot"]
 }
