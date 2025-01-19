@@ -1,8 +1,24 @@
 import type { Metadata, Viewport } from "next";
 import { TailwindIndicator } from "~/components/ui/tailwind-indicator";
 import { ThemeProvider } from "~/components/ui/theme";
-import { cn, constructMetadata } from "~/lib/utils";
+import { constructMetadata } from "~/lib/utils";
 import "~/styles/globals.css";
+import { Bodoni_Moda, Geist, Geist_Mono } from "next/font/google";
+
+const bodoniModa = Bodoni_Moda({
+  subsets: ["latin"],
+  variable: "--font-bodoni-moda",
+});
+
+const geistSans = Geist({
+  subsets: ["latin"],
+  variable: "--font-geist-sans",
+});
+
+const geistMono = Geist_Mono({
+  subsets: ["latin"],
+  variable: "--font-geist-mono",
+});
 
 export const metadata: Metadata = constructMetadata({});
 
@@ -12,6 +28,8 @@ export const viewport: Viewport = {
     { media: "(prefers-color-scheme: light)", color: "white" },
     { media: "(prefers-color-scheme: dark)", color: "black" },
   ],
+  initialScale: 1,
+  width: "device-width",
 };
 
 export default function RootLayout({
@@ -21,11 +39,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <link rel="preconnect" href="https://rsms.me/" />
-        <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
-      </head>
-      <body className={cn("min-h-screen w-full scroll-smooth antialiased")}>
+      <body
+        className={`min-h-screen w-full scroll-smooth antialiased ${bodoniModa.variable} ${geistSans.variable} ${geistMono.variable} font-serif`}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
