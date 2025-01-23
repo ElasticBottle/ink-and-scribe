@@ -11,11 +11,16 @@ import { BlogAuthor } from "../_components/blog-author";
 export async function generateMetadata({
   params,
 }: {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }): Promise<Metadata | undefined> {
-  const post = await getPost(params.slug);
+  const { slug } = await params;
+  const post = await getPost(slug);
+  if (!post) {
+    return;
+  }
+
   const {
     title,
     publishedAt: publishedTime,
@@ -50,11 +55,11 @@ export async function generateMetadata({
 export default async function Blog({
   params,
 }: {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }) {
-  const post = await getPost(params.slug);
+  const post = await getPost((await params).slug);
   if (!post) {
     notFound();
   }

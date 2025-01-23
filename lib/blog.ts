@@ -20,7 +20,11 @@ export interface Post {
 
 export const TERMS_OF_USE_AND_PRIVACY_POLICY_NAME =
   "terms-of-use-and-privacy-policy";
+const CONTENT_FOLDER = "content";
 
+function getContentFolder() {
+  return path.join(process.cwd(), CONTENT_FOLDER);
+}
 function parseFrontmatter(fileContent: string) {
   const frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
   const match = frontmatterRegex.exec(fileContent);
@@ -85,7 +89,15 @@ export async function markdownToHTML(markdown: string) {
 }
 
 export async function getPost(slug: string) {
-  const filePath = path.join("content", `${slug}.mdx`);
+  const contentPath = getContentFolder();
+  const mdxFiles = getMDXFiles(contentPath);
+  const file = mdxFiles.find((file) => file.includes(slug));
+  if (!file) {
+    return null;
+  }
+
+  const realFileSlug = path.relative(contentPath, file);
+  const filePath = path.join(CONTENT_FOLDER, realFileSlug);
   const source = fs.readFileSync(filePath, "utf-8");
   const { content: rawContent, data: metadata } = parseFrontmatter(source);
   const content = await markdownToHTML(rawContent);
@@ -102,19 +114,25 @@ export async function getPost(slug: string) {
   };
 }
 
-function getAllPosts(dir: string) {
+async function getAllPosts(dir: string) {
   const mdxFiles = getMDXFiles(dir);
-  return Promise.all(
+  const posts = await Promise.all(
     mdxFiles.map(async (filePath) => {
       const slug = path
         .relative(dir, filePath)
         .replace(/\.mdx$/, "")
         .replace(/\\/g, "/"); // Normalize path separators
+
+      const result = await getPost(slug);
+      if (!result) {
+        return null;
+      }
       const {
         source: contentHtml,
         metadata: postMetadata,
         slug: postSlug,
-      } = await getPost(slug);
+      } = result;
+
       return {
         ...postMetadata,
         slug: postSlug,
@@ -122,8 +140,9 @@ function getAllPosts(dir: string) {
       };
     }),
   );
+  return posts.filter((post) => post !== null);
 }
 
 export function getBlogPosts() {
-  return getAllPosts(path.join(process.cwd(), "content"));
+  return getAllPosts(getContentFolder());
 }
