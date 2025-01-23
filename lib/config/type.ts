@@ -134,8 +134,9 @@ export type SiteConfig = {
     href: string;
   };
   footer: {
-    privacyPolicy: string;
-    termsOfService: string;
+    termsOfUseAndPrivacyPolicy?: string;
+    privacyPolicy?: string;
+    termsOfService?: string;
     items: {
       title: string;
       links: {

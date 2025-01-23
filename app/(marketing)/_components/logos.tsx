@@ -12,7 +12,7 @@ export function Logos() {
           With a team you can trust
         </h3>
         <div className="relative pt-6">
-          <Marquee className="max-w-full [--duration:40s]" repeat={6}>
+          <Marquee className="max-w-full [--duration:40s]" repeat={4}>
             {siteConfig.socialProof.icons.map(({ href, name }) => (
               <Image
                 key={name}

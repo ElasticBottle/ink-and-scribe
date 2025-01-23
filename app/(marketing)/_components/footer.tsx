@@ -38,16 +38,30 @@ export default function Footer() {
             </Link>
           </span>
           <ul className="flex justify-start text-foreground text-sm tracking-tight md:justify-end">
-            <li className="mr-3 md:mx-4">
-              <Link href={siteConfig.footer.privacyPolicy} target="_blank">
-                Privacy Policy
-              </Link>
-            </li>
-            <li className="mr-3 md:mx-4">
-              <Link href={siteConfig.footer.termsOfService} target="_blank">
-                Terms of Service
-              </Link>
-            </li>
+            {siteConfig.footer.termsOfUseAndPrivacyPolicy && (
+              <li className="mr-3 md:mx-4">
+                <Link
+                  href={siteConfig.footer.termsOfUseAndPrivacyPolicy}
+                  target="_blank"
+                >
+                  Terms of Use and Privacy Policy
+                </Link>
+              </li>
+            )}
+            {siteConfig.footer.privacyPolicy && (
+              <li className="mr-3 md:mx-4">
+                <Link href={siteConfig.footer.privacyPolicy} target="_blank">
+                  Privacy Policy
+                </Link>
+              </li>
+            )}
+            {siteConfig.footer.termsOfService && (
+              <li className="mr-3 md:mx-4">
+                <Link href={siteConfig.footer.termsOfService} target="_blank">
+                  Terms of Service
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
       </div>

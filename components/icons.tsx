@@ -1,9 +1,9 @@
-import { File } from "lucide-react";
+import { BrandLogo } from "./brand-logo";
 
 export type IconProps = React.HTMLAttributes<SVGElement>;
 
 export const Icons = {
-  logo: (props: IconProps) => <File {...props} />,
+  logo: (props: IconProps) => <BrandLogo {...props} /> /*  */,
   twitter: (props: IconProps) => (
     <svg
       {...props}

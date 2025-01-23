@@ -23,9 +23,11 @@ const nextConfig = {
     remotePatterns: [
       { hostname: "localhost" },
       { hostname: "randomuser.me" },
+      // For brand image
       { hostname: "upload.wikimedia.org" },
       { hostname: "i0.wp.com" },
       { hostname: "encrypted-tbn0.gstatic.com" },
+      { hostname: "media.licdn.com" },
     ],
   },
 };

@@ -1,11 +1,12 @@
 import Link from "next/link";
 import { siteConfig } from "~/lib/config";
+import { ROUTE_HOME } from "~/lib/routes";
 import { cn } from "~/lib/utils";
 
 export function BrandButton({ className }: { className?: string }) {
   return (
     <Link
-      href="/"
+      href={ROUTE_HOME}
       title={siteConfig.name}
       className={cn("flex items-center space-x-2", className)}
     >

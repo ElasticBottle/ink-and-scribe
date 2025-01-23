@@ -12,11 +12,14 @@ import { siteConfig } from "./config";
 export interface Post {
   title: string;
   publishedAt: string;
-  summary: string;
   author: string;
-  slug: string;
+  summary?: string;
+  slug?: string;
   image?: string;
 }
+
+export const TERMS_OF_USE_AND_PRIVACY_POLICY_NAME =
+  "terms-of-use-and-privacy-policy";
 
 function parseFrontmatter(fileContent: string) {
   const frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
@@ -43,6 +46,12 @@ function getMDXFiles(dir: string): string[] {
   const entries = fs.readdirSync(dir, { withFileTypes: true });
 
   const files = entries.reduce<string[]>((allFiles, entry) => {
+    // Ignore the terms of use and privacy policy page
+    if (entry.name.startsWith(TERMS_OF_USE_AND_PRIVACY_POLICY_NAME)) {
+      return allFiles;
+    }
+
+    // get everything else
     const fullPath = path.join(dir, entry.name);
     if (entry.isDirectory()) {
       return allFiles.concat(getMDXFiles(fullPath));
@@ -89,7 +98,7 @@ export async function getPost(slug: string) {
       ...metadata,
       image: metadata.image || defaultImage,
     },
-    slug,
+    slug: metadata.slug ?? slug,
   };
 }
 

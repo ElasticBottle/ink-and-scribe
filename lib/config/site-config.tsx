@@ -3,23 +3,24 @@ import { Brain, Shield, Sparkles, Upload, Zap } from "lucide-react";
 import { FaTwitter } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa6";
 import { RiInstagramFill } from "react-icons/ri";
+import { ROUTE_BLOG, ROUTE_TOS } from "../routes";
 import type { SiteConfig } from "./type";
 
 export const BLUR_FADE_DELAY = 0.15;
 
 export const siteConfig: SiteConfig = {
-  name: "Trademark AI",
+  name: "Ink and Scribe",
   description:
     "Trademark AI is an advanced AI-powered platform designed to automate and enhance trademark applications.",
   url: process.env.NEXT_PUBLIC_APP_URL || "http://localhost:6969",
   icon: Icons.logo,
   keywords: ["Trademark", "AI", "Patent", "IP"],
   links: {
-    email: "support@trademark.ai",
-    twitter: "https://twitter.com/trademark-ai",
+    email: "support@inkandscribe.com",
+    twitter: "https://twitter.com/inkandscribe",
   },
   announcement: {
-    href: "/blog",
+    href: ROUTE_BLOG,
     title: "Introducing our new blog! Read the latest updates and insights.",
   },
   header: [
@@ -95,7 +96,7 @@ export const siteConfig: SiteConfig = {
     {
       variant: "button",
       buttonVariant: "navigation",
-      href: "/blog",
+      href: ROUTE_BLOG,
       label: "Blog",
     },
   ],
@@ -123,12 +124,24 @@ export const siteConfig: SiteConfig = {
         name: "Oxford",
       },
       {
+        href: "https://media.licdn.com/dms/image/v2/C560BAQG-6MUyGaEjKg/company-logo_100_100/company-logo_100_100/0/1662956008666/drew__napier_llc_logo?e=1745452800&v=beta&t=S1UKpdga7cH3Ssna0frfIyVtc5SzObME9ZZb5MqJAjg",
+        name: "Drew and Napier",
+      },
+      {
         href: "https://i0.wp.com/thecustodian.ca/wp-content/uploads/2022/02/waterloo.png?fit=600%2C600&ssl=1",
         name: "Waterloo",
       },
       {
+        href: "https://media.licdn.com/dms/image/v2/C4E0BAQFDslWTgw1Q4g/company-logo_100_100/company-logo_100_100/0/1631325721627?e=1745452800&v=beta&t=1gTqTZW0OJYP-LeGxoBxPL3mhZOYw6MCfRrkmYb_I80",
+        name: "Baker",
+      },
+      {
         href: "https://upload.wikimedia.org/wikipedia/en/b/b9/NUS_coat_of_arms.svg",
         name: "NUS",
+      },
+      {
+        href: "https://media.licdn.com/dms/image/v2/D4E0BAQGnGELqq6HXHw/company-logo_100_100/company-logo_100_100/0/1720517867022/pwc_logo?e=1745452800&v=beta&t=Zbrob75hisyL8NOgTetZresqF-wCwsdlo410J2iWRXQ",
+        name: "PWC",
       },
     ],
   },
@@ -316,8 +329,7 @@ export const siteConfig: SiteConfig = {
     href: "/registration",
   },
   footer: {
-    privacyPolicy: "#",
-    termsOfService: "#",
+    termsOfUseAndPrivacyPolicy: ROUTE_TOS,
     items: [
       {
         title: "Product",

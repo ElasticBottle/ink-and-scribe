@@ -1,4 +1,3 @@
-import Footer from "~/app/(marketing)/_components/footer";
 import TestimonialsCarousel from "~/app/(marketing)/_components/testimonials-carousel";
 import { Spacer } from "~/components/ui/spacer";
 import { Announcement } from "./_components/announcement";
@@ -7,15 +6,13 @@ import { Cta } from "./_components/cta";
 import FAQ from "./_components/faq";
 import { Hero } from "./_components/hero";
 import { Logos } from "./_components/logos";
-import { Header } from "./_components/navigation/header";
 import { Pricing } from "./_components/pricing";
 import Problem from "./_components/problem";
 import { Solution } from "./_components/solution";
 
 export default function Home() {
   return (
-    <main>
-      <Header />
+    <>
       <Spacer className="h-24 md:h-32" />
       <Announcement />
       <Spacer className="h-8" />
@@ -36,7 +33,6 @@ export default function Home() {
       <Cta />
       <Spacer className="h-20 md:h-24" />
       <Blog />
-      <Footer />
-    </main>
+    </>
   );
 }

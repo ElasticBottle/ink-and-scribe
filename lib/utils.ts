@@ -29,6 +29,11 @@ export function constructMetadata({
     },
     description: description || siteConfig.description,
     keywords: siteConfig.keywords,
+    appleWebApp: {
+      capable: true,
+      title: "Ink & Scribe",
+      statusBarStyle: "default",
+    },
     openGraph: {
       title,
       description,
@@ -45,7 +50,31 @@ export function constructMetadata({
       type: "website",
       locale: "en_US",
     },
-    icons: "/favicon.ico",
+    icons: [
+      {
+        rel: "icon",
+        type: "image/png",
+        sizes: "32x32",
+        url: "/favicon-32x32.png",
+      },
+      {
+        rel: "icon",
+        type: "image/png",
+        sizes: "16x16",
+        url: "/favicon-16x16.png",
+      },
+
+      {
+        rel: "shortcut icon",
+        url: "/favicon.ico",
+      },
+      {
+        rel: "apple-touch-icon",
+        sizes: "180x180",
+        url: "/apple-touch-icon.png",
+      },
+    ],
+    manifest: "/site.webmanifest",
     metadataBase: new URL(siteConfig.url),
     authors: [
       {
