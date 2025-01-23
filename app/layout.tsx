@@ -4,6 +4,7 @@ import { ThemeProvider } from "~/components/ui/theme";
 import { constructMetadata } from "~/lib/utils";
 import "~/styles/globals.css";
 import { Bodoni_Moda, Geist, Geist_Mono } from "next/font/google";
+import { ClientProviders } from "./client-providers";
 
 const bodoniModa = Bodoni_Moda({
   subsets: ["latin"],
@@ -42,14 +43,16 @@ export default function RootLayout({
       <body
         className={`min-h-screen w-full scroll-smooth antialiased ${bodoniModa.variable} ${geistSans.variable} ${geistMono.variable} font-serif`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem={true}
-        >
-          {children}
-          <TailwindIndicator />
-        </ThemeProvider>
+        <ClientProviders>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem={true}
+          >
+            {children}
+            <TailwindIndicator />
+          </ThemeProvider>
+        </ClientProviders>
       </body>
     </html>
   );
