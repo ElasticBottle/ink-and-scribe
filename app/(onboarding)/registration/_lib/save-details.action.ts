@@ -158,8 +158,8 @@ export async function saveRegistrationDetails(data: RegistrationData) {
     // Append the row to the sheet
     const params = {
       spreadsheetId: SPREADSHEET_ID,
-      range: "customer-info!A:R", // Columns A through R (added registration ID)
-      valueInputOption: "USER_ENTERED" as const, // Important for formula to work
+      range: "customer-info!A:R",
+      valueInputOption: "USER_ENTERED" as const,
       requestBody: { values: [values] },
     };
 

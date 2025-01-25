@@ -151,7 +151,6 @@ export function TrademarkFilingForm() {
       router.push("/registration/success");
     } catch (error) {
       console.error("Failed to submit form:", error);
-      // Here you would typically show an error message to the user
     }
   }
 
