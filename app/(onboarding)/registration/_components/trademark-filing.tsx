@@ -39,6 +39,12 @@ import {
   SelectValue,
 } from "~/components/ui/select";
 import { Switch } from "~/components/ui/switch";
+import {
+  type BusinessInfo,
+  type RegistrationData,
+  type TrademarkOwner,
+  saveRegistrationDetails,
+} from "../_lib/save-details.action";
 
 const formSchema = object({
   isWordMark: boolean(),
@@ -110,27 +116,43 @@ export function TrademarkFilingForm() {
     return () => window.removeEventListener("beforeunload", handleBeforeUnload);
   }, [form.formState.isDirty]);
 
-  function onSubmit(values: FormData) {
-    localStorage.setItem("trademarkFiling", JSON.stringify(values));
-    // Here you would typically submit all the form data
-    const businessInfo = localStorage.getItem("businessInfo");
-    const trademarkOwner = localStorage.getItem("trademarkOwner");
-    const trademarkFiling = values;
+  async function onSubmit(values: FormData) {
+    try {
+      // Get all form data from localStorage
+      const businessInfo = localStorage.getItem("businessInfo");
+      const trademarkOwner = localStorage.getItem("trademarkOwner");
 
-    console.log({
-      businessInfo: businessInfo ? JSON.parse(businessInfo) : null,
-      trademarkOwner: trademarkOwner ? JSON.parse(trademarkOwner) : null,
-      trademarkFiling,
-      files,
-    });
+      if (!businessInfo || !trademarkOwner) {
+        throw new Error("Missing required information");
+      }
 
-    // Clear localStorage after successful submission
-    localStorage.removeItem("businessInfo");
-    localStorage.removeItem("trademarkOwner");
-    localStorage.removeItem("trademarkFiling");
+      // Prepare the registration data
+      const registrationData: RegistrationData = {
+        businessInfo: JSON.parse(businessInfo) as BusinessInfo,
+        trademarkOwner: JSON.parse(trademarkOwner) as TrademarkOwner,
+        trademarkFiling: values,
+        ...(files?.[0] && { logoFile: files[0] }),
+        submittedAt: new Date().toISOString(),
+      };
 
-    // Redirect to success page or handle submission
-    router.push("/registration/success");
+      // Save to Google Sheets
+      const result = await saveRegistrationDetails(registrationData);
+
+      if (!result.success) {
+        throw new Error(result.error);
+      }
+
+      // Clear localStorage after successful submission
+      localStorage.removeItem("businessInfo");
+      localStorage.removeItem("trademarkOwner");
+      localStorage.removeItem("trademarkFiling");
+
+      // Redirect to success page
+      router.push("/registration/success");
+    } catch (error) {
+      console.error("Failed to submit form:", error);
+      // Here you would typically show an error message to the user
+    }
   }
 
   const isWordMark = form.watch("isWordMark");
