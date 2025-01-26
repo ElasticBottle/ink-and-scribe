@@ -3,10 +3,19 @@
 import { CheckCircle, XCircle } from "lucide-react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 import { Button } from "~/components/ui/button";
 import { Card } from "~/components/ui/card";
 
 export default function PaymentCompletePage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <PaymentComplete />
+    </Suspense>
+  );
+}
+
+function PaymentComplete() {
   const searchParams = useSearchParams();
   const status = searchParams.get("status");
   const registrationId = searchParams.get("registrationId");

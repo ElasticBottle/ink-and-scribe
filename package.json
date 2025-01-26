@@ -10,7 +10,7 @@
     "env:set:local": "func () { bunx dotenvx set ${1} ${2} -f ./.env.local;}; func",
     "env:get:local": "func () { bunx dotenvx get ${1} ${2} -f ./.env.local;}; func",
     "with-env-local": "dotenvx run -f .env.local --",
-    "with-env-prod": "dotenvx run -f .env.prod --",
+    "with-env-prod": "dotenvx run -f .env.production --",
     "dev": "bun with-env-local next dev --port 6969",
     "build": "bun with-env-prod next build",
     "start": "bun with-env-prod next start",
