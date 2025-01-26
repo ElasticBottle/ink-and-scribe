@@ -165,7 +165,7 @@ export async function saveRegistrationDetails(data: RegistrationData) {
 
     await sheets.spreadsheets.values.append(params);
 
-    return { success: true };
+    return { success: true, registrationId };
   } catch (error) {
     console.error("Failed to save registration details:", error);
     return { success: false, error: "Failed to save registration details" };

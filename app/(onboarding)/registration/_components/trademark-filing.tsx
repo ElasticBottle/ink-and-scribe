@@ -148,7 +148,9 @@ export function TrademarkFilingForm() {
       localStorage.removeItem("trademarkFiling");
 
       // Redirect to success page
-      router.push("/registration/success");
+      router.push(
+        `/registration/success?registrationId=${result.registrationId}`,
+      );
     } catch (error) {
       console.error("Failed to submit form:", error);
     }
