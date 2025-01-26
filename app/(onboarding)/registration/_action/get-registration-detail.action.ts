@@ -1,5 +1,4 @@
 "use server";
-
 import { JWT } from "google-auth-library";
 import { google } from "googleapis";
 import type {
@@ -33,8 +32,22 @@ export interface RegistrationDetails {
   businessInfo: BusinessInfo;
   trademarkOwner: TrademarkOwner;
   trademarkFiling: TrademarkFiling;
-  logoUrl?: string;
+  logoUrl: string | null;
   submittedAt: string;
+}
+
+function extractUrlFromImageFormula(formula: string): string | null {
+  if (!formula) return null;
+  const match = formula.match(/=IMAGE\("([^"]+)"\)/);
+  if (!match?.[1]) return null;
+
+  // Convert the URL to an embeddable format
+  const url = match[1];
+  const idMatch = url.match(/id=([^&]+)/);
+  if (!idMatch?.[1]) return null;
+
+  // Return the embeddable URL format
+  return `https://drive.google.com/file/d/${idMatch[1]}/preview`;
 }
 
 export async function getRegistration(
@@ -49,6 +62,7 @@ export async function getRegistration(
     const response = await sheets.spreadsheets.values.get({
       spreadsheetId: SPREADSHEET_ID,
       range: "customer-info!A:R",
+      valueRenderOption: "FORMULA", // Get the actual formulas instead of computed values
     });
 
     const rows = response.data.values;
@@ -61,7 +75,7 @@ export async function getRegistration(
     if (!row) {
       return null;
     }
-
+    const logoUrl = extractUrlFromImageFormula(row[16]) ?? null;
     // Parse the row data into our RegistrationDetails structure
     return {
       registrationId: row[0],
@@ -85,12 +99,10 @@ export async function getRegistration(
       },
       trademarkFiling: {
         isWordMark: row[13] === "Word Mark",
-        wordMark: row[14] || undefined,
+        wordMark: row[14] ?? undefined,
         countries: row[15] ? row[15].split(", ") : [],
       },
-      logoUrl: row[16]
-        ? row[16].replace('=IMAGE("', "").replace('")', "")
-        : undefined,
+      logoUrl,
       submittedAt: row[17],
     };
   } catch (error) {

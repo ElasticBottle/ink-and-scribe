@@ -4,8 +4,8 @@ import { notFound } from "next/navigation";
 import { Button } from "~/components/ui/button";
 import { Card } from "~/components/ui/card";
 import { siteConfig } from "~/lib/config";
+import { getRegistration } from "../_action/get-registration-detail.action";
 import { censorEmail } from "../_lib/censor-email";
-import { getRegistration } from "../_lib/get-registration-detail.action";
 
 export default async function SuccessPage({
   searchParams,

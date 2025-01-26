@@ -44,7 +44,7 @@ import {
   type RegistrationData,
   type TrademarkOwner,
   saveRegistrationDetails,
-} from "../_lib/save-details.action";
+} from "../_action/save-details.action";
 
 const formSchema = object({
   isWordMark: boolean(),

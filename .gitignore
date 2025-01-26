@@ -7,6 +7,7 @@ node_modules
 .wrangler
 dist-ssr
 *.local
+!.env.local
 .venv
 __pycache__
 
@@ -57,7 +58,7 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-# local env files
+# local env .files
 .env.keys
 .dev.vars
 
