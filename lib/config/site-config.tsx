@@ -14,7 +14,7 @@ export const siteConfig: SiteConfig = {
     "Trademark AI is an advanced AI-powered platform designed to automate and enhance trademark applications.",
   url: process.env.NEXT_PUBLIC_APP_URL || "http://localhost:6969",
   icon: Icons.logo,
-  keywords: ["Trademark", "AI", "Patent", "IP"],
+  keywords: ["Trademark", "Branding", "Patent", "IP"],
   links: {
     email: "support@inkandscribe.com",
     twitter: "https://twitter.com/inkandscribe",
@@ -101,14 +101,14 @@ export const siteConfig: SiteConfig = {
     },
   ],
   hero: {
-    title: ["Trademark applications", "in days", "not months"],
+    title: ["It's Your Brand.", "Make Sure It's No One Else's."],
     description:
-      "Secure your brand identity with confidence. Our agency helps you file trademarks quickly and accurately, eliminating paperwork and reducing registration time by up to 90%.",
+      "We make trademarks effortless and affordable so your brand stays yours, and no one else will profit from your hard work. One form is all it takes to start securing your brand today.",
     cta: {
       href: "/registration",
-      label: "Protect your brand now",
+      label: "Protect Your Brand Today",
       buttonVariant: "default",
-      subtitle: "Lowest rates guaranteed or your money back.",
+      subtitle: "or your money back.",
     },
     showcase: {
       videoSrc: undefined,
@@ -146,51 +146,51 @@ export const siteConfig: SiteConfig = {
     ],
   },
   problems: {
-    // title: "Problem",
-    subtitle: "Trademark applications don't have to be hard.",
+    subtitle:
+      "Without a Trademark, Your Brand and Your Customers Are Up for Grabs.",
     items: [
       {
-        title: "Opposition",
+        title: "Imitators",
         description:
-          "Businesses struggle to make sense of vast amounts of complex data, missing out on valuable insights that could drive growth and innovation.",
+          "Imitators can deceive your customers and damage your credibility.",
         icon: Brain,
       },
       {
-        title: "Slow Decision-Making",
+        title: "Expensive Disputes",
         description:
-          "Traditional data processing methods are too slow, causing businesses to lag behind market changes and miss crucial opportunities.",
+          "Expensive disputes to reclaim your brand will incur unnecessary cost and effort.",
         icon: Zap,
       },
       {
-        title: "Data Security Concerns",
+        title: "No Protection",
         description:
-          "With increasing cyber threats, businesses worry about the safety of their sensitive information when adopting new technologies.",
+          "An unprotected brand cannot confidently compete or expand.",
         icon: Shield,
       },
     ],
   },
   solution: {
-    title: "We help you handle all the complexities of trademark applications",
-    subtitle: "so you can focus on your business",
+    title: "Trademarks",
+    subtitle: "A Small Cost for Substantial Opportunities.",
     items: [
       {
-        title: "1. Upload Your Data",
+        title: "Ownership and Exclusivity",
         content:
-          "Simply upload your data to our secure platform. We support various file formats and data types to ensure a seamless integration with your existing systems.",
+          "A trademark gives you the exclusive right to your name, logo, and identity.",
         image: "/dashboard.png",
         icon: <Upload className="size-6 text-primary" />,
       },
       {
-        title: "2. Click Start",
+        title: "Enable Growth and Expansion",
         content:
-          "Our advanced AI algorithms automatically process and analyze your data, extracting valuable insights and patterns that would be difficult to identify manually.",
+          "Trademarks open doors to new markets, licensing opportunities, and partnerships while safeguarding your identity.",
         image: "/dashboard.png",
         icon: <Zap className="size-6 text-primary" />,
       },
       {
-        title: "3. Get Actionable Insights",
+        title: "Build Trust and Recognition",
         content:
-          "Receive clear, actionable insights and recommendations based on the AI analysis. Use these insights to make data-driven decisions and improve your business strategies.",
+          "Customers associate your trademark with quality and consistency, strengthening their loyalty and confidence in your brand.",
         image: "/dashboard.png",
         icon: <Sparkles className="size-6 text-primary" />,
       },
@@ -323,9 +323,10 @@ export const siteConfig: SiteConfig = {
     ],
   },
   cta: {
-    title: "Ready to get started?",
-    subtitle: "Start your free trial today.",
-    buttonText: "Get started for free",
+    title:
+      "Open doors to growth, safe guard your brand, and defend against costly risks.",
+    subtitle: "Invest in a trademark for unmatched value.",
+    buttonText: "Protect Your Brand Today",
     href: "/registration",
   },
   footer: {
