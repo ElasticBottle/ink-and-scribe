@@ -1,11 +1,11 @@
-import { blogConfig } from "lib/config";
 import { constructMetadata } from "lib/utils";
 import { getBlogPosts } from "~/lib/blog";
+import { siteConfig } from "~/lib/config";
 import { BlogCard } from "./_components/blog-card";
 
 export const metadata = constructMetadata({
-  title: siteConfig.blog.title,
-  description: siteConfig.blog.description,
+  title: siteConfig.blog?.title ?? siteConfig.name,
+  description: siteConfig.blog?.description ?? siteConfig.description,
 });
 
 export default async function Blog() {
@@ -20,11 +20,13 @@ export default async function Blog() {
       <div className="mx-auto w-full max-w-screen-xl px-2.5 lg:px-20">
         <div className="py-16 text-center">
           <h1 className="font-bold text-3xl text-foreground sm:text-4xl">
-            {blogConfig.title}
+            {siteConfig.blog?.title ?? siteConfig.name}
           </h1>
-          <p className="mt-4 text-muted-foreground text-xl">
-            {blogConfig.description}
-          </p>
+          {siteConfig.blog?.description && (
+            <p className="mt-4 text-muted-foreground text-xl">
+              {siteConfig.blog?.description}
+            </p>
+          )}
         </div>
       </div>
       <div className="min-h-[50vh] bg-gradient-to-b from-background to-muted">

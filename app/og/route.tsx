@@ -1,4 +1,3 @@
-import { Icons } from "components/icons";
 import { siteConfig } from "lib/config";
 import { ImageResponse } from "next/og";
 import type { NextRequest } from "next/server";
@@ -37,7 +36,7 @@ export async function GET(req: NextRequest) {
           top: "125px",
         }}
       >
-        <Icons.logo
+        <siteConfig.icon
           style={{
             width: "64px",
             height: "64px",
@@ -73,7 +72,7 @@ export async function GET(req: NextRequest) {
       </div>
 
       <img
-        src={`${siteConfig.url}/dashboard.png`}
+        src={`${siteConfig.url}/form.png`}
         alt="dashboard"
         width={900}
         style={{

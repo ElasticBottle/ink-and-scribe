@@ -41,12 +41,12 @@ export const siteConfig: SiteConfig = {
   //   title: "Introducing our new blog! Read the latest updates and insights.",
   // },
   header: [
-    {
-      variant: "button",
-      buttonVariant: "navigation",
-      href: ROUTE_BLOG,
-      label: "Blog",
-    },
+    // {
+    //   variant: "button",
+    //   buttonVariant: "navigation",
+    //   href: ROUTE_BLOG,
+    //   label: "Blog",
+    // },
     {
       variant: "button",
       buttonVariant: "default",
