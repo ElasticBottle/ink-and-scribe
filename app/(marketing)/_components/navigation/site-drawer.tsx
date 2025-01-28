@@ -5,8 +5,10 @@ import { Button } from "~/components/ui/button";
 import {
   Drawer,
   DrawerContent,
+  DrawerDescription,
   DrawerFooter,
   DrawerHeader,
+  DrawerTitle,
   DrawerTrigger,
 } from "~/components/ui/drawer";
 import { ThemeToggle } from "~/components/ui/theme";
@@ -35,6 +37,8 @@ export function SiteDrawer() {
       </DrawerTrigger>
       <DrawerContent>
         <DrawerHeader className="px-6">
+          <DrawerTitle className="sr-only">{siteConfig.name}</DrawerTitle>
+          <DrawerDescription className="sr-only">mobile menu</DrawerDescription>
           <div className="flex items-center justify-between">
             <BrandButton />
             <ThemeToggle />

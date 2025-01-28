@@ -96,10 +96,15 @@ export type SiteConfig = {
     subtitle: string;
     description?: string;
     items: {
+      icon: (props: IconProps) => React.ReactNode;
       title: string;
       description: string;
-      wrapperClassName?: string;
-      content: React.ReactNode;
+      className?: string;
+      cta?: {
+        href: string;
+        label: string;
+      };
+      background?: React.ReactNode;
     }[];
   };
   howItWorks?: {

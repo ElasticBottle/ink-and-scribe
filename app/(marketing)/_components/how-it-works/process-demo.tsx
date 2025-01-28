@@ -100,8 +100,8 @@ export function ProcessDemo({
       )}
     >
       <AnimatedList>
-        {notifications.map((item) => (
-          <Notification {...item} key={item.name} />
+        {notifications.map((item, idx) => (
+          <Notification {...item} key={`${item.name}-${idx}`} />
         ))}
       </AnimatedList>
     </div>

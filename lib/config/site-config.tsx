@@ -2,33 +2,38 @@ import { Icons } from "components/icons";
 import {
   Bell,
   BookA,
+  Building2,
   ClipboardX,
   DollarSign,
+  HandCoins,
+  Scan,
   Shield,
   ShieldCheck,
+  User,
 } from "lucide-react";
-import { FaTwitter } from "react-icons/fa";
-import { FaYoutube } from "react-icons/fa6";
-import { RiInstagramFill } from "react-icons/ri";
 import { Brand } from "~/app/(marketing)/_components/benefits/brand";
 import { Growth } from "~/app/(marketing)/_components/benefits/growth";
 import { Ownership } from "~/app/(marketing)/_components/benefits/ownership";
 import { EmailPreview } from "~/app/(marketing)/_components/how-it-works/email-preview";
 import { ProcessDemo } from "~/app/(marketing)/_components/how-it-works/process-demo";
-import { ROUTE_BLOG, ROUTE_TOS } from "../routes";
+import { FitEveryBusiness } from "~/app/(marketing)/_components/solution/fit-every-business";
+import { ROUTE_BLOG, ROUTE_REGISTRATION, ROUTE_TOS } from "../routes";
 import type { SiteConfig } from "./type";
 
 export const BLUR_FADE_DELAY = 0.15;
+const CompanyName = "Ink and Scribe";
+const SupportEmail = "support@inkandscribe.com";
+const ContactEmail = "contact@inkandscribe.com";
 
 export const siteConfig: SiteConfig = {
-  name: "Ink and Scribe",
+  name: CompanyName,
   description:
     "We make trademark registration simple and affordable with a straightforward $350 per class fee and an easy three-step process. Our service helps protect your brand identity from copycats while enabling growth opportunities and building customer trust through official trademark registration.",
   url: process.env.NEXT_PUBLIC_APP_URL || "http://localhost:6969",
   icon: Icons.logo,
   keywords: ["Trademark", "Branding", "Patent", "IP"],
   links: {
-    email: "support@inkandscribe.com",
+    email: SupportEmail,
     twitter: "https://twitter.com/inkandscribe",
   },
   announcement: {
@@ -37,79 +42,16 @@ export const siteConfig: SiteConfig = {
   },
   header: [
     {
-      variant: "dropdown",
-      label: "Features",
-      content: {
-        main: {
-          icon: <Icons.logo className="size-6" />,
-          title: "AI-Powered Automation",
-          description: "Streamline your workflow with intelligent automation.",
-          href: "#",
-        },
-        items: [
-          {
-            href: "#",
-            title: "Task Automation",
-            description:
-              "Automate repetitive tasks and save time. Automate repetitive tasks and save time. Automate repetitive tasks and save time.",
-          },
-          {
-            href: "#",
-            title: "Workflow Optimization",
-            description: "Optimize your processes with AI-driven insights.",
-          },
-          {
-            href: "#",
-            title: "Intelligent Scheduling",
-            description: "AI-powered scheduling for maximum efficiency.",
-          },
-        ],
-      },
-    },
-    {
-      variant: "dropdown",
-      label: "Solutions",
-      content: {
-        items: [
-          {
-            title: "For Small Businesses",
-            href: "#",
-            description: "Tailored automation solutions for growing companies.",
-          },
-          {
-            title: "Enterprise",
-            href: "#",
-            description: "Scalable AI automation for large organizations.",
-          },
-          {
-            title: "Developers",
-            href: "#",
-            description: "API access and integration tools for developers.",
-          },
-          {
-            title: "Healthcare",
-            href: "#",
-            description: "Specialized automation for healthcare workflows.",
-          },
-          {
-            title: "Finance",
-            href: "#",
-            description: "AI-driven process automation for financial services.",
-          },
-          {
-            title: "Education",
-            href: "#",
-            description:
-              "Streamline administrative tasks in educational institutions.",
-          },
-        ],
-      },
-    },
-    {
       variant: "button",
       buttonVariant: "navigation",
       href: ROUTE_BLOG,
       label: "Blog",
+    },
+    {
+      variant: "button",
+      buttonVariant: "default",
+      href: ROUTE_REGISTRATION,
+      label: "Protect Your Brand",
     },
   ],
   hero: {
@@ -117,7 +59,7 @@ export const siteConfig: SiteConfig = {
     description:
       "We make trademarks cheap and easy. One form is all it takes to start securing your brand. Don't let others profit from your hard work.",
     cta: {
-      href: "/registration",
+      href: ROUTE_REGISTRATION,
       label: "Protect Your Brand Today",
       buttonVariant: "default",
       subtitle: "Or your money back.",
@@ -212,34 +154,40 @@ export const siteConfig: SiteConfig = {
     ],
   },
   solution: {
-    title: "Ink and Scribe",
+    title: CompanyName,
     subtitle: "We Make Trademarking Simple",
     items: [
       {
+        icon: HandCoins,
         title: "Easy, Upfront Pricing",
         description: "$350 per class per trademark. That's it.",
-        wrapperClassName: "bg-muted",
-        content: <div>Hello</div>,
+        className: "col-span-3 lg:col-span-1",
       },
       {
+        icon: Scan,
         title: "Real-Time Updates",
         description:
           "We keep you posted every step of the way on your filing status.",
-        wrapperClassName: "bg-muted",
-        content: <div>Hello</div>,
+        className: "col-span-3 lg:col-span-2",
+        background: (
+          <ProcessDemo className="absolute top-4 right-2 h-[300px] border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-105" />
+        ),
       },
       {
+        icon: Building2,
         title: "Fits Every Business",
         description:
           "Whether you're a startup or an enterprise, we've got your back.",
-        wrapperClassName: "bg-muted",
-        content: <div>Hello</div>,
+        className: "col-span-3 lg:col-span-2",
+        background: (
+          <FitEveryBusiness className="absolute top-4 right-2 h-[300px] border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-105" />
+        ),
       },
       {
+        icon: User,
         title: "Built by Business Owners",
         description: "We know how to protect what's important - your brand.",
-        wrapperClassName: "bg-muted",
-        content: <div>Hello</div>,
+        className: "col-span-3 lg:col-span-1",
       },
     ],
   },
@@ -268,18 +216,18 @@ export const siteConfig: SiteConfig = {
       },
     ],
   },
-  testimonials: {
-    title: "Testimonials",
-    subtitle: "What our customers say",
-    items: [
-      {
-        name: "John Doe",
-        role: "CEO",
-        quote: "This is the best service I've ever used.",
-        company: "Acme Corp",
-      },
-    ],
-  },
+  // testimonials: {
+  //   title: "Testimonials",
+  //   subtitle: "What our customers say",
+  //   items: [
+  //     {
+  //       name: "John Doe",
+  //       role: "CEO",
+  //       quote: "This is the best service I've ever used.",
+  //       company: "Acme Corp",
+  //     },
+  //   ],
+  // },
   pricing: {
     title: "Pricing",
     subtitle: "Choose the plan that's right for you",
@@ -466,51 +414,58 @@ export const siteConfig: SiteConfig = {
       {
         title: "Product",
         links: [
-          { href: "#", text: "Features", icon: null },
-          { href: "#", text: "Pricing", icon: null },
-          { href: "#", text: "Documentation", icon: null },
-          { href: "#", text: "API", icon: null },
+          {
+            href: "#how-it-works",
+            text: `Why ${CompanyName}?`,
+            icon: null,
+          },
+          { href: "#how-it-works", text: "How It Works", icon: null },
+          { href: "#pricing", text: "Pricing", icon: null },
+          { href: "#faq", text: "FAQ", icon: null },
         ],
       },
-      {
-        title: "Company",
-        links: [
-          { href: "#", text: "About Us", icon: null },
-          { href: "#", text: "Careers", icon: null },
-          { href: "#", text: "Blog", icon: null },
-          { href: "#", text: "Press", icon: null },
-          { href: "#", text: "Partners", icon: null },
-        ],
-      },
+      // {
+      //   title: "Company",
+      //   links: [
+      //     { href: "#", text: "About Us", icon: null },
+      //     { href: "#", text: "Careers", icon: null },
+      //     { href: "#", text: "Blog", icon: null },
+      //     { href: "#", text: "Press", icon: null },
+      //     { href: "#", text: "Partners", icon: null },
+      //   ],
+      // },
       {
         title: "Resources",
         links: [
-          { href: "#", text: "Community", icon: null },
-          { href: "#", text: "Contact", icon: null },
-          { href: "#", text: "Support", icon: null },
-          { href: "#", text: "Status", icon: null },
+          { href: ROUTE_BLOG, text: "Blog", icon: null },
+          {
+            href: `mailto:${ContactEmail}`,
+            text: "Contact",
+            icon: null,
+          },
+          { href: `mailto:${SupportEmail}`, text: "Support", icon: null },
         ],
       },
-      {
-        title: "Social",
-        links: [
-          {
-            href: "#",
-            text: "Twitter",
-            icon: <FaTwitter />,
-          },
-          {
-            href: "#",
-            text: "Instagram",
-            icon: <RiInstagramFill />,
-          },
-          {
-            href: "#",
-            text: "Youtube",
-            icon: <FaYoutube />,
-          },
-        ],
-      },
+      // {
+      //   title: "Social",
+      //   links: [
+      //     {
+      //       href: "#",
+      //       text: "Twitter",
+      //       icon: <FaTwitter />,
+      //     },
+      //     {
+      //       href: "#",
+      //       text: "Instagram",
+      //       icon: <RiInstagramFill />,
+      //     },
+      //     {
+      //       href: "#",
+      //       text: "Youtube",
+      //       icon: <FaYoutube />,
+      //     },
+      //   ],
+      // },
     ],
   },
 };

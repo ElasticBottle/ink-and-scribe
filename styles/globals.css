@@ -79,7 +79,7 @@
   }
 
   * {
-    @apply border-border;
+    @apply border-border scroll-p-10;
   }
 
   @supports (font-variation-settings: normal) {

@@ -11,6 +11,7 @@ import { HowItWorks } from "./_components/how-it-works/how-it-works";
 import { Logos } from "./_components/logos";
 import { Pricing } from "./_components/pricing";
 import { Problem } from "./_components/problem";
+import { Solution } from "./_components/solution";
 
 const LandingPageSections: Record<string, React.ReactNode> = {
   socialProof: siteConfig.socialProof && (
@@ -18,7 +19,7 @@ const LandingPageSections: Record<string, React.ReactNode> = {
   ),
   problems: siteConfig.problems && <Problem problems={siteConfig.problems} />,
   benefits: siteConfig.benefits && <Benefits benefits={siteConfig.benefits} />,
-  // solution: siteConfig.solution && <Solution solution={siteConfig.solution} />,
+  solution: siteConfig.solution && <Solution solution={siteConfig.solution} />,
   howItWorks: siteConfig.howItWorks && (
     <HowItWorks howItWorks={siteConfig.howItWorks} />
   ),
