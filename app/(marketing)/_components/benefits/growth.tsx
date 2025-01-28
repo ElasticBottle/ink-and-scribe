@@ -1,5 +1,4 @@
 import FlickeringGrid from "~/components/ui/flickering-grid";
-import { Globe } from "~/components/ui/globe";
 
 export function Growth() {
   return (
@@ -14,8 +13,8 @@ export function Growth() {
         height={1200}
         width={1200}
       />
-      <div className="relative min-h-32">
-        <Globe className="xl:-top-6 md:top-52" />
+      <div className="relative flex min-h-32 w-full items-end justify-center md:h-full md:pb-12 xl:h-48 xl:pb-0">
+        <img src="/globe.png" alt="growth" className="w-fit xl:max-w-md" />
       </div>
     </>
   );
