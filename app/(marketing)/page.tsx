@@ -7,30 +7,23 @@ import { Blog } from "./_components/blog";
 import { Cta } from "./_components/cta";
 import { FAQ } from "./_components/faq";
 import { Hero } from "./_components/hero";
-import { HowItWorks } from "./_components/how-it-works/how-it-works";
+import { HowItWorks } from "./_components/how-it-works";
 import { Logos } from "./_components/logos";
 import { Pricing } from "./_components/pricing";
 import { Problem } from "./_components/problem";
 import { Solution } from "./_components/solution";
 
 const LandingPageSections: Record<string, React.ReactNode> = {
-  socialProof: siteConfig.socialProof && (
-    <Logos logos={siteConfig.socialProof} />
-  ),
-  problems: siteConfig.problems && <Problem problems={siteConfig.problems} />,
-  benefits: siteConfig.benefits && <Benefits benefits={siteConfig.benefits} />,
-  solution: siteConfig.solution && <Solution solution={siteConfig.solution} />,
-  howItWorks: siteConfig.howItWorks && (
-    <HowItWorks howItWorks={siteConfig.howItWorks} />
-  ),
-  testimonials: siteConfig.testimonials && <TestimonialsCarousel />,
-  pricing: siteConfig.pricing && <Pricing />,
-  faq: siteConfig.faq && (
-    <FAQ faq={siteConfig.faq} supportEmail={siteConfig.links.email} />
-  ),
-  cta: siteConfig.cta && (
-    <Cta cta={siteConfig.cta} icon={<siteConfig.icon className="size-6" />} />
-  ),
+  socialProof: <Logos />,
+  problems: <Problem problems={siteConfig.problems} />,
+  benefits: <Benefits benefits={siteConfig.benefits} />,
+  solution: <Solution />,
+  howItWorks: <HowItWorks />,
+  testimonials: <TestimonialsCarousel />,
+  pricing: <Pricing />,
+  faq: <FAQ />,
+  cta: <Cta />,
+  blog: <Blog />,
 };
 
 export default function Home() {
@@ -54,7 +47,6 @@ export default function Home() {
           </>
         );
       })}
-      <Blog />
     </>
   );
 }

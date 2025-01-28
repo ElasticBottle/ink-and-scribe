@@ -36,10 +36,10 @@ export const siteConfig: SiteConfig = {
     email: SupportEmail,
     twitter: "https://twitter.com/inkandscribe",
   },
-  announcement: {
-    href: ROUTE_BLOG,
-    title: "Introducing our new blog! Read the latest updates and insights.",
-  },
+  // announcement: {
+  //   href: ROUTE_BLOG,
+  //   title: "Introducing our new blog! Read the latest updates and insights.",
+  // },
   header: [
     {
       variant: "button",
@@ -66,8 +66,8 @@ export const siteConfig: SiteConfig = {
     },
     showcase: {
       videoSrc: undefined,
-      thumbnailSrc: "/dashboard.png",
-      thumbnailAlt: "Hero video",
+      thumbnailSrc: "/warrior-2.png",
+      thumbnailAlt: "Ink and Scribe warrior",
     },
   },
   socialProof: {
@@ -160,7 +160,7 @@ export const siteConfig: SiteConfig = {
       {
         icon: HandCoins,
         title: "Easy, Upfront Pricing",
-        description: "$350 per class per trademark. That's it.",
+        description: "$399 per class per trademark. That's it.",
         className: "col-span-3 lg:col-span-1",
       },
       {
@@ -230,51 +230,22 @@ export const siteConfig: SiteConfig = {
   // },
   pricing: {
     title: "Pricing",
-    subtitle: "Choose the plan that's right for you",
-    description: "Perfect for individuals and small projects",
+    subtitle: "Easy, Upfront Pricing",
+    description: "You pay once, we handle the rest.",
+    variant: "one-time",
     items: [
       {
-        name: "BASIC",
-        href: "#",
-        price: "$49",
-        billingPeriod: "month",
-        period: "month",
-        yearlyPrice: "$39",
-        yearlyBillingPeriod: "month",
-        features: ["Basic Filing", "Realtime Status Updates"],
-        description: "Perfect for individuals and small projects",
-        buttonText: "Subscribe",
-        isPopular: false,
-      },
-      {
-        name: "PRO",
-        href: "#",
-        price: "$69",
-        billingPeriod: "month",
-        period: "month",
-        yearlyPrice: "$59",
-        yearlyBillingPeriod: "month",
-        features: ["Everything in Basic", "5 Trademark searches"],
-        description: "Ideal for growing businesses and teams",
-        buttonText: "Subscribe",
-        isPopular: true,
-      },
-      {
-        name: "ENTERPRISE",
-        href: "#",
-        price: "$99",
-        billingPeriod: "month",
-        period: "month",
-        yearlyPrice: "$82",
-        yearlyBillingPeriod: "month",
+        name: "Trademark Filing",
+        href: ROUTE_REGISTRATION,
+        price: "$399",
+        unit: "class",
+        description: "The best way to secure your brand",
         features: [
-          "Everything in Pro",
-          "10 Trademark searches",
-          "Priority Support",
+          "Trademark eligibility search",
+          "Trademark filing",
+          "Realtime status updates",
         ],
-        description: "For large-scale operations and high-volume users",
-        buttonText: "Subscribe",
-        isPopular: false,
+        buttonText: "Protect Your Brand",
       },
     ],
   },
@@ -407,7 +378,10 @@ export const siteConfig: SiteConfig = {
       },
     ],
   },
-
+  // blog: {
+  //   title: "Articles",
+  //   description: `Latest news and updates from ${CompanyName}`,
+  // },
   footer: {
     termsOfUseAndPrivacyPolicy: ROUTE_TOS,
     items: [

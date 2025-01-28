@@ -1,14 +1,16 @@
 "use client";
 import { motion } from "framer-motion";
 import { cn } from "lib/utils";
-import type { NotUndefined, SiteConfig } from "~/lib/config";
+import type { SiteConfig } from "~/lib/config";
 import { Section } from "../section";
 
 export function Benefits({
   benefits,
 }: {
-  benefits: NotUndefined<SiteConfig["benefits"]>;
+  benefits: SiteConfig["benefits"];
 }) {
+  if (!benefits) return null;
+
   return (
     <Section
       title={benefits.title}

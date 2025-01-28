@@ -89,8 +89,8 @@ export function ImageWithVideo({
         <Image
           src={thumbnailSrc}
           alt={thumbnailAlt}
-          width={1920}
-          height={1080}
+          width={1024}
+          height={720}
           data-has-video={!!videoSrc}
           className="rounded-md border transition-all duration-200 ease-out data-[has-video=true]:group-hover:brightness-[0.8]"
         />

@@ -136,12 +136,7 @@ export default async function Blog({
           dangerouslySetInnerHTML={{ __html: post.source }}
         />
       </div>
-      {siteConfig.cta && (
-        <Cta
-          cta={siteConfig.cta}
-          icon={<siteConfig.icon className="size-6" />}
-        />
-      )}
+      <Cta />
     </section>
   );
 }

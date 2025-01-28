@@ -4,6 +4,13 @@ import { Check, StarIcon } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { buttonVariants } from "~/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "~/components/ui/card";
 import { Switch } from "~/components/ui/switch";
 import { siteConfig } from "~/lib/config";
 import useMediaQuery from "~/lib/hooks/use-window-size";
@@ -17,6 +24,71 @@ export function Pricing() {
   const handleToggle = () => {
     setIsMonthly(!isMonthly);
   };
+
+  if (siteConfig.pricing.variant === "one-time") {
+    return (
+      <Section
+        title={siteConfig.pricing.title}
+        subtitle={siteConfig.pricing.subtitle}
+        description={siteConfig.pricing.description}
+      >
+        <div className="mx-auto grid max-w-md items-start gap-8 lg:max-w-none ">
+          {siteConfig.pricing.items.map((plan) => (
+            <motion.div
+              key={plan.name}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.1 }}
+            >
+              <Card className="relative overflow-hidden border-primary/50">
+                {/* Gradient overlay */}
+                <div className="pointer-events-none absolute inset-0 rounded-[inherit] bg-gradient-to-t from-primary/5 to-transparent" />
+
+                <CardHeader className="flex flex-row items-center justify-between">
+                  <div className="space-y-1">
+                    <CardTitle>{plan.name}</CardTitle>
+                    <CardDescription>{plan.description}</CardDescription>
+                  </div>
+                  <div className="flex items-end justify-end gap-1">
+                    <span className="font-bold text-3xl">{plan.price}</span>
+                    <span className="mb-1 text-muted-foreground">
+                      /{plan.unit}
+                    </span>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  {plan.features && (
+                    <ul className="space-y-4">
+                      {plan.features.map((feature) => (
+                        <li key={feature} className="flex gap-4">
+                          <Check className="size-5 shrink-0 text-primary" />
+                          <span className="text-muted-foreground">
+                            {feature}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  <div className="mt-6">
+                    <Link
+                      href={plan.href}
+                      className={cn(
+                        buttonVariants({ variant: "default", size: "lg" }),
+                        "w-full",
+                      )}
+                    >
+                      {plan.buttonText}
+                    </Link>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+      </Section>
+    );
+  }
 
   return (
     <Section

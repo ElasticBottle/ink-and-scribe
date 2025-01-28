@@ -135,20 +135,36 @@ export type SiteConfig = {
     title?: string;
     subtitle: string;
     description?: string;
-    items: {
-      name: string;
-      href: string;
-      price: string;
-      billingPeriod: string;
-      period: string;
-      yearlyPrice: string;
-      yearlyBillingPeriod: string;
-      features: string[];
-      description: string;
-      buttonText: string;
-      isPopular: boolean;
-    }[];
-  };
+  } & (
+    | {
+        variant: "subscription";
+        items: {
+          name: string;
+          href: string;
+          price: string;
+          billingPeriod: string;
+          period: string;
+          yearlyPrice: string;
+          yearlyBillingPeriod: string;
+          features: string[];
+          description: string;
+          buttonText: string;
+          isPopular: boolean;
+        }[];
+      }
+    | {
+        variant: "one-time";
+        items: {
+          name: string;
+          href: string;
+          price: string;
+          unit: string;
+          description?: string;
+          features?: string[];
+          buttonText: string;
+        }[];
+      }
+  );
   faq?: {
     title?: string;
     subtitle?: string;
@@ -156,6 +172,10 @@ export type SiteConfig = {
       question: string;
       answer: React.ReactNode;
     }[];
+  };
+  blog?: {
+    title: string;
+    description?: string;
   };
   cta?: {
     title?: string;

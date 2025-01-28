@@ -4,25 +4,21 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "~/components/ui/accordion";
-import type { NotUndefined, SiteConfig } from "~/lib/config";
+import { siteConfig } from "~/lib/config";
 import { Section } from "./section";
 
-export function FAQ({
-  faq,
-  supportEmail,
-}: {
-  faq: NotUndefined<SiteConfig["faq"]>;
-  supportEmail: string | undefined;
-}) {
+export function FAQ() {
+  if (!siteConfig.faq) return null;
+
   return (
-    <Section title={faq.title} subtitle={faq.subtitle}>
+    <Section title={siteConfig.faq.title} subtitle={siteConfig.faq.subtitle}>
       <div className="mx-auto my-12 md:max-w-[800px]">
         <Accordion
           type="single"
           collapsible
           className="flex w-full flex-col items-center justify-center space-y-2"
         >
-          {faq.items.map((faq) => (
+          {siteConfig.faq.items.map((faq) => (
             <AccordionItem
               key={faq.question}
               value={faq.question}
@@ -36,11 +32,11 @@ export function FAQ({
           ))}
         </Accordion>
       </div>
-      {supportEmail && (
+      {siteConfig.links.email && (
         <p className="text-center font-medium text-muted-foreground text-sm tracking-tight">
           Still have questions? Email us at{" "}
-          <a href={`mailto:${supportEmail}`} className="underline">
-            {supportEmail}
+          <a href={`mailto:${siteConfig.links.email}`} className="underline">
+            {siteConfig.links.email}
           </a>
         </p>
       )}

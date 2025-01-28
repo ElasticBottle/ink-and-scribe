@@ -4,8 +4,8 @@ import { getBlogPosts } from "~/lib/blog";
 import { BlogCard } from "./_components/blog-card";
 
 export const metadata = constructMetadata({
-  title: blogConfig.title,
-  description: blogConfig.description,
+  title: siteConfig.blog.title,
+  description: siteConfig.blog.description,
 });
 
 export default async function Blog() {

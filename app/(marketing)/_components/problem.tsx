@@ -1,13 +1,15 @@
 import BlurFade from "~/components/ui/blur-fade";
 import { Card, CardContent } from "~/components/ui/card";
-import type { NotUndefined, SiteConfig } from "~/lib/config";
+import type { SiteConfig } from "~/lib/config";
 import { Section } from "./section";
 
 export function Problem({
   problems,
 }: {
-  problems: NotUndefined<SiteConfig["problems"]>;
+  problems: SiteConfig["problems"];
 }) {
+  if (!problems) return null;
+
   return (
     <Section title={problems.title} subtitle={problems.subtitle}>
       <div className="grid grid-cols-1 gap-8 pt-8 md:grid-cols-3 md:p-12">

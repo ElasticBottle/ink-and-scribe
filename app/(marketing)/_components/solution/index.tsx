@@ -1,14 +1,16 @@
 import { BentoCard, BentoGrid } from "~/components/ui/bento-grid";
-import type { NotUndefined, SiteConfig } from "~/lib/config";
-import { Section } from "./section";
+import { siteConfig } from "~/lib/config";
+import { Section } from "../section";
 
-export function Solution({
-  solution,
-}: { solution: NotUndefined<SiteConfig["solution"]> }) {
+export function Solution() {
+  if (!siteConfig.solution) return null;
   return (
-    <Section title={solution.title} subtitle={solution.subtitle}>
+    <Section
+      title={siteConfig.solution.title}
+      subtitle={siteConfig.solution.subtitle}
+    >
       <BentoGrid>
-        {solution.items.map((feature) => (
+        {siteConfig.solution.items.map((feature) => (
           <BentoCard
             key={feature.title}
             Icon={feature.icon}

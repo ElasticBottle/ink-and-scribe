@@ -1,11 +1,13 @@
 import { getBlogPosts } from "lib/blog";
 import Link from "next/link";
 import { buttonVariants } from "~/components/ui/button";
-import { blogConfig } from "~/lib/config";
+import { siteConfig } from "~/lib/config";
 import { BlogCard } from "../blog/_components/blog-card";
 import { Section } from "./section";
 
 export async function Blog() {
+  if (!siteConfig.blog) return null;
+
   const allPosts = await getBlogPosts();
 
   const articles = await Promise.all(
@@ -13,7 +15,10 @@ export async function Blog() {
   );
 
   return (
-    <Section subtitle={blogConfig.title} description={blogConfig.description}>
+    <Section
+      subtitle={siteConfig.blog.title}
+      description={siteConfig.blog.description}
+    >
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
         {articles.slice(0, 3).map((data, idx) => (
           <BlogCard key={data.slug} data={data} priority={idx <= 1} />
