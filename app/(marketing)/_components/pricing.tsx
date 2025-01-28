@@ -17,7 +17,6 @@ export function Pricing() {
   const handleToggle = () => {
     setIsMonthly(!isMonthly);
   };
-  console.log("isDesktop", isDesktop);
 
   return (
     <Section

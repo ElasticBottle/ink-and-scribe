@@ -74,7 +74,8 @@
       "dist",
       "routeTree.gen.ts",
       "sst-env.d.ts",
-      "site.webmanifest"
+      "site.webmanifest",
+      "globe.tsx"
     ]
   }
 }

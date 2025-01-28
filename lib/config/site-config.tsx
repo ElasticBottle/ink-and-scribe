@@ -1,8 +1,20 @@
 import { Icons } from "components/icons";
-import { Brain, Shield, Sparkles, Upload, Zap } from "lucide-react";
+import {
+  Bell,
+  BookA,
+  ClipboardX,
+  DollarSign,
+  Shield,
+  ShieldCheck,
+} from "lucide-react";
 import { FaTwitter } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa6";
 import { RiInstagramFill } from "react-icons/ri";
+import { Brand } from "~/app/(marketing)/_components/benefits/brand";
+import { Growth } from "~/app/(marketing)/_components/benefits/growth";
+import { Ownership } from "~/app/(marketing)/_components/benefits/ownership";
+import { EmailPreview } from "~/app/(marketing)/_components/how-it-works/email-preview";
+import { ProcessDemo } from "~/app/(marketing)/_components/how-it-works/process-demo";
 import { ROUTE_BLOG, ROUTE_TOS } from "../routes";
 import type { SiteConfig } from "./type";
 
@@ -11,7 +23,7 @@ export const BLUR_FADE_DELAY = 0.15;
 export const siteConfig: SiteConfig = {
   name: "Ink and Scribe",
   description:
-    "Trademark AI is an advanced AI-powered platform designed to automate and enhance trademark applications.",
+    "We make trademark registration simple and affordable with a straightforward $350 per class fee and an easy three-step process. Our service helps protect your brand identity from copycats while enabling growth opportunities and building customer trust through official trademark registration.",
   url: process.env.NEXT_PUBLIC_APP_URL || "http://localhost:6969",
   icon: Icons.logo,
   keywords: ["Trademark", "Branding", "Patent", "IP"],
@@ -103,12 +115,12 @@ export const siteConfig: SiteConfig = {
   hero: {
     title: ["It's Your Brand.", "Make Sure It's No One Else's."],
     description:
-      "We make trademarks effortless and affordable so your brand stays yours, and no one else will profit from your hard work. One form is all it takes to start securing your brand today.",
+      "We make trademarks cheap and easy. One form is all it takes to start securing your brand. Don't let others profit from your hard work.",
     cta: {
       href: "/registration",
       label: "Protect Your Brand Today",
       buttonVariant: "default",
-      subtitle: "or your money back.",
+      subtitle: "Or your money back.",
     },
     showcase: {
       videoSrc: undefined,
@@ -146,53 +158,113 @@ export const siteConfig: SiteConfig = {
     ],
   },
   problems: {
-    subtitle:
-      "Without a Trademark, Your Brand and Your Customers Are Up for Grabs.",
+    title: "Without a Trademark",
+    subtitle: "Your Brand and Your Customers Are Up for Grabs.",
     items: [
       {
-        title: "Imitators",
+        title: "Copycats",
         description:
-          "Imitators can deceive your customers and damage your credibility.",
-        icon: Brain,
+          "Copycats can cheat your customers and damage your credibility.",
+        icon: ClipboardX,
       },
       {
         title: "Expensive Disputes",
         description:
-          "Expensive disputes to reclaim your brand will incur unnecessary cost and effort.",
-        icon: Zap,
+          "Expensive disputes to reclaim your brand will cost unnecessary time, money, and effort.",
+        icon: DollarSign,
       },
       {
         title: "No Protection",
         description:
-          "An unprotected brand cannot confidently compete or expand.",
+          "An unprotected brand cannot compete or expand confidently.",
         icon: Shield,
       },
     ],
   },
-  solution: {
+  benefits: {
     title: "Trademarks",
-    subtitle: "A Small Cost for Substantial Opportunities.",
+    subtitle: "A Smart Investment for Massive Opportunities.",
     items: [
       {
-        title: "Ownership and Exclusivity",
-        content:
-          "A trademark gives you the exclusive right to your name, logo, and identity.",
-        image: "/dashboard.png",
-        icon: <Upload className="size-6 text-primary" />,
+        title: "Gain Full Ownership",
+        description:
+          "A trademark gives you the sole right to your name, logo, and identity.",
+        wrapperClassName:
+          "xl:row-span-1 hover:bg-primary/10 transition-all duration-500 ease-out",
+        content: <Ownership />,
       },
       {
         title: "Enable Growth and Expansion",
-        content:
-          "Trademarks open doors to new markets, licensing opportunities, and partnerships while safeguarding your identity.",
-        image: "/dashboard.png",
-        icon: <Zap className="size-6 text-primary" />,
+        description:
+          "A trademark lets you enter new places and form safe partnerships.",
+        wrapperClassName:
+          "md:row-span-2 xl:col-span-3 xl:order-2 xl:row-span-1 hover:bg-primary/10 transition-all duration-500 ease-out",
+        content: <Growth />,
       },
       {
         title: "Build Trust and Recognition",
-        content:
-          "Customers associate your trademark with quality and consistency, strengthening their loyalty and confidence in your brand.",
-        image: "/dashboard.png",
-        icon: <Sparkles className="size-6 text-primary" />,
+        description:
+          "A trademark shows people they get the same great quality every time.",
+        wrapperClassName:
+          "xl:order-1 xl:col-span-2 hover:bg-primary/10 transition-all duration-500 ease-out",
+        content: <Brand />,
+      },
+    ],
+  },
+  solution: {
+    title: "Ink and Scribe",
+    subtitle: "We Make Trademarking Simple",
+    items: [
+      {
+        title: "Easy, Upfront Pricing",
+        description: "$350 per class per trademark. That's it.",
+        wrapperClassName: "bg-muted",
+        content: <div>Hello</div>,
+      },
+      {
+        title: "Real-Time Updates",
+        description:
+          "We keep you posted every step of the way on your filing status.",
+        wrapperClassName: "bg-muted",
+        content: <div>Hello</div>,
+      },
+      {
+        title: "Fits Every Business",
+        description:
+          "Whether you're a startup or an enterprise, we've got your back.",
+        wrapperClassName: "bg-muted",
+        content: <div>Hello</div>,
+      },
+      {
+        title: "Built by Business Owners",
+        description: "We know how to protect what's important - your brand.",
+        wrapperClassName: "bg-muted",
+        content: <div>Hello</div>,
+      },
+    ],
+  },
+  howItWorks: {
+    title: "How It Works",
+    subtitle: "Trademark in in Three Simple Steps",
+    items: [
+      {
+        title: "Fill Out a Form",
+        description: "Share a few details about your brand.",
+        icon: <BookA className="size-6" />,
+        image: "/form.png",
+      },
+      {
+        title: "Get Notified",
+        description: "We'll tell you if your brand can be trademarked.",
+        icon: <Bell className="size-6" />,
+        content: <EmailPreview />,
+      },
+      {
+        title: "We handle the process",
+        description:
+          "Once approved and paid, we handle the rest of the process to secure your brand.",
+        icon: <ShieldCheck className="size-6" />,
+        content: <ProcessDemo />,
       },
     ],
   },
@@ -258,77 +330,136 @@ export const siteConfig: SiteConfig = {
       },
     ],
   },
+  cta: {
+    title: "A trademark isn't just about safety.",
+    subtitle: "Help your brand avoid big problems later.",
+    buttonText: "Secure Your Brand Today",
+    href: "/registration",
+  },
   faq: {
     title: "FAQ",
     subtitle: "Frequently asked questions",
     items: [
       {
-        question: "What is Trademark AI?",
+        question: "How much does trademark registration cost?",
         answer: (
           <span>
-            Trademark AI is an advanced AI-powered platform designed to automate
-            and enhance trademark applications. It uses machine learning
-            algorithms to identify vulnerabilities, simulate attacks, and
-            provide actionable insights to improve your security posture.
+            Our trademark registration service costs $350 per class per
+            trademark. This is a transparent, all-inclusive fee that covers the
+            entire registration process. Additional official fees from
+            intellectual property offices may apply depending on your
+            jurisdiction.
+          </span>
+        ),
+      },
+      {
+        question: "How long does the trademark registration process take?",
+        answer: (
+          <span>
+            The trademark registration process typically takes 6-12 months from
+            filing to completion. However, timelines can vary depending on the
+            jurisdiction and whether any objections are raised during the
+            examination process. We'll keep you updated on your application
+            status throughout the journey.
           </span>
         ),
       },
       {
         question:
-          "How does Trademark AI differ from traditional trademark applications?",
+          "Can I register a trademark for both my company name and logo?",
         answer: (
           <span>
-            Trademark AI leverages artificial intelligence to continuously adapt
-            to new threats, automate complex testing processes, and provide more
-            comprehensive coverage than traditional methods. It offers faster
-            results, ongoing assessments, and intelligent insights that evolve
-            with your infrastructure.
+            Yes, you can register both your company name as a word mark and your
+            logo as a trademark. Many businesses choose to protect both elements
+            separately for comprehensive brand protection. You can select
+            between word mark and logo mark registration during the application
+            process.
           </span>
         ),
       },
       {
-        question: "Is Trademark AI suitable for companies of all sizes?",
+        question: "Which countries can I register my trademark in?",
         answer: (
           <span>
-            Yes, Trademark AI is designed to scale with your needs. We offer
-            plans suitable for small businesses, growing enterprises, and large
-            corporations. Our platform can be customized to fit various
-            infrastructure sizes and security requirements.
+            We currently support trademark registration in Singapore, Malaysia,
+            Indonesia, Thailand, Vietnam, Philippines, Brunei, Cambodia, Laos,
+            and Myanmar. Each country has its own specific requirements and
+            processes, which our system will guide you through.
+          </span>
+        ),
+      },
+      {
+        question: "What happens if someone is already using my trademark?",
+        answer: (
+          <span>
+            If your trademark search reveals existing similar marks, we'll
+            notify you during the application process. It's important to conduct
+            proper searches before filing, as existing similar marks could lead
+            to objections or rejection of your application.
+          </span>
+        ),
+      },
+      {
+        question: "Do I need a company to register a trademark?",
+        answer: (
+          <span>
+            No, trademarks can be registered by both companies and individuals.
+            Our system supports both types of applications, and you can specify
+            your status during the registration process. We'll adjust the
+            required information accordingly.
           </span>
         ),
       },
       {
         question:
-          "How does Trademark AI ensure the security of my data during testing?",
+          "What information do I need to provide for trademark registration?",
         answer: (
           <span>
-            Trademark AI adheres to strict security protocols. All tests are
-            conducted in a controlled environment, and we never store or access
-            your sensitive data. Our platform is designed to identify
-            vulnerabilities without compromising your systems or data integrity.
+            You'll need to provide basic business information, contact details,
+            and trademark specifics. For companies, this includes registration
+            numbers and company details. For individuals, we'll need personal
+            identification information. The exact requirements are outlined in
+            our step-by-step application process.
+          </span>
+        ),
+      },
+      {
+        question: "Are there any recurring fees to maintain my trademark?",
+        answer: (
+          <span>
+            Yes, trademarks need to be renewed periodically (usually every 10
+            years) to maintain protection. Renewal fees vary by jurisdiction.
+            We'll notify you well in advance of any renewal deadlines to ensure
+            continuous protection of your intellectual property.
+          </span>
+        ),
+      },
+      {
+        question: "What happens after I submit my trademark application?",
+        answer: (
+          <span>
+            After submission, you'll receive a unique registration ID for
+            tracking. Our team will review your application, and we'll
+            communicate with you via the email provided. You can track your
+            application status using your registration ID.
           </span>
         ),
       },
       {
         question:
-          "Can Trademark AI integrate with my existing trademark tools?",
+          "Can I make changes to my trademark application after submission?",
         answer: (
           <span>
-            Absolutely. Trademark AI is built with integration in mind. We offer
-            APIs and pre-built connectors to seamlessly integrate with popular
-            trademark tools, enhancing your overall trademark workflow.
+            Limited changes may be possible during the early stages of the
+            application process. However, significant modifications might
+            require a new application. It's important to ensure all information
+            is accurate before submission to avoid delays or additional costs.
           </span>
         ),
       },
     ],
   },
-  cta: {
-    title:
-      "Open doors to growth, safe guard your brand, and defend against costly risks.",
-    subtitle: "Invest in a trademark for unmatched value.",
-    buttonText: "Protect Your Brand Today",
-    href: "/registration",
-  },
+
   footer: {
     termsOfUseAndPrivacyPolicy: ROUTE_TOS,
     items: [

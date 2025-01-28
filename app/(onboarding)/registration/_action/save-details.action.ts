@@ -103,8 +103,8 @@ async function uploadFileToDrive(
     },
   });
 
-  // Return the embeddable URL format
-  return `https://drive.google.com/file/d/${driveResponse.data.id}/preview`;
+  // Return the direct image URL
+  return `https://drive.google.com/uc?export=view&id=${driveResponse.data.id}`;
 }
 
 export async function saveRegistrationDetails(data: RegistrationData) {

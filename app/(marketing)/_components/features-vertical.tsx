@@ -16,7 +16,8 @@ export default function Features({
   linePosition?: "left" | "right" | "top" | "bottom";
   data: {
     title: string;
-    content: string;
+    description: string;
+    content?: React.ReactNode;
     image?: string | undefined;
     video?: string | undefined;
     icon?: React.ReactNode | undefined;
@@ -163,21 +164,18 @@ export default function Features({
                   </div>
                 ) : null}
 
-                <div className="relative flex items-center">
+                <div className="relative mx-2 flex items-center sm:mx-6">
                   {item.icon && (
-                    <div className="item-box mx-2 flex size-12 shrink-0 items-center justify-center rounded-full bg-primary/10 sm:mx-6">
+                    <div className="item-box mr-2 flex size-12 shrink-0 items-center justify-center rounded-full bg-primary/10 sm:mr-6">
                       {item.icon}
                     </div>
                   )}
-                  <div>
-                    <Accordion.AccordionTrigger className="pl-0 font-bold text-xl">
-                      {item.title}
-                    </Accordion.AccordionTrigger>
-
-                    <Accordion.AccordionTrigger className="justify-start pl-0 text-left text-[16px] leading-4">
-                      {item.content}
-                    </Accordion.AccordionTrigger>
-                  </div>
+                  <Accordion.AccordionTrigger className="text-start">
+                    <div className="font-bold text-xl">{item.title}</div>
+                    <div className="text-muted-foreground">
+                      {item.description}
+                    </div>
+                  </Accordion.AccordionTrigger>
                 </div>
               </Accordion.AccordionItem>
             ))}
@@ -206,6 +204,10 @@ export default function Features({
               loop
               muted
             />
+          ) : data[currentIndex]?.content ? (
+            <div className="aspect-auto size-full rounded-xl border border-neutral-300/50 p-1">
+              {data[currentIndex].content}
+            </div>
           ) : (
             <div className="aspect-auto size-full rounded-xl border border-neutral-300/50 bg-gray-200 p-1" />
           )}
@@ -240,7 +242,7 @@ export default function Features({
               </div>
               <h2 className="font-bold text-xl">{item.title}</h2>
               <p className="mx-0 max-w-sm text-balance text-sm">
-                {item.content}
+                {item.description}
               </p>
             </div>
           ))}

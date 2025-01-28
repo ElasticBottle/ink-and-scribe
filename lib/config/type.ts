@@ -27,6 +27,8 @@ export type HeaderDropdownConfig = {
   };
 };
 
+export type NotUndefined<T> = T extends undefined ? never : T;
+
 export type SiteConfig = {
   name: string;
   description: string;
@@ -68,7 +70,7 @@ export type SiteConfig = {
       name: string;
     }[];
   };
-  problems: {
+  problems?: {
     title?: string;
     subtitle: string;
     description?: string;
@@ -78,16 +80,39 @@ export type SiteConfig = {
       icon: (props: IconProps) => React.ReactNode;
     }[];
   };
-  solution: {
+  benefits?: {
     title?: string;
     subtitle: string;
     description?: string;
     items: {
       title: string;
-      content: string;
+      description: string;
+      wrapperClassName?: string;
+      content: React.ReactNode;
+    }[];
+  };
+  solution?: {
+    title?: string;
+    subtitle: string;
+    description?: string;
+    items: {
+      title: string;
+      description: string;
+      wrapperClassName?: string;
+      content: React.ReactNode;
+    }[];
+  };
+  howItWorks?: {
+    title?: string;
+    subtitle: string;
+    description?: string;
+    items: {
+      title: string;
+      description: string;
+      icon?: React.ReactNode;
       image?: string;
       video?: string;
-      icon?: React.ReactNode;
+      content?: React.ReactNode;
     }[];
   };
   testimonials?: {

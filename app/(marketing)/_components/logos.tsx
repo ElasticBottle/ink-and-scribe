@@ -1,19 +1,21 @@
 import Marquee from "components/ui/marquee";
 import Image from "next/image";
-import { siteConfig } from "~/lib/config";
+import type { NotUndefined, SiteConfig } from "~/lib/config";
 
-export function Logos() {
-  if (!siteConfig.socialProof) return null;
-
+export function Logos({
+  logos,
+}: {
+  logos: NotUndefined<SiteConfig["socialProof"]>;
+}) {
   return (
     <section id="logos">
       <div className="container mx-auto px-4 md:px-8">
         <h3 className="text-center font-semibold text-muted-foreground text-sm">
-          With a team you can trust
+          {logos.title}
         </h3>
         <div className="relative pt-6">
           <Marquee className="max-w-full [--duration:40s]" repeat={4}>
-            {siteConfig.socialProof.icons.map(({ href, name }) => (
+            {logos.icons.map(({ href, name }) => (
               <Image
                 key={name}
                 width={56}
