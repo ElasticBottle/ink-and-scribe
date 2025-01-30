@@ -1,12 +1,15 @@
-import Navbar from "@/components/Navbar"; // Ensure this path is correct
 import Head from "next/head";
+import Navbar from "@/components/Navbar";
 
 export default function B2BLanding() {
   return (
     <div className="min-h-screen bg-gray-50">
       <Head>
         <title>TM-AI | AI-Powered Trademark Filing</title>
-        <meta name="description" content="AI-powered trademark advice & filing automation for law firms and agencies." />
+        <meta
+          name="description"
+          content="AI-powered trademark advice & filing automation for law firms and agencies."
+        />
       </Head>
 
       {/* Navbar */}
@@ -19,9 +22,13 @@ export default function B2BLanding() {
             Instantly Draft TM Advice & Automate Filings
           </h1>
           <p className="mt-6 text-gray-700 text-xl leading-relaxed">
-            Free your team from repetitive TM tasks—get AI-powered trademark advice & filing automation tailored for law firms and TM agencies.
+            Free your team from repetitive TM tasks—get AI-powered trademark
+            advice & filing automation tailored for law firms and TM agencies.
           </p>
-          <a href="#contact" className="mt-8 inline-block rounded-lg bg-blue-600 px-6 py-3 font-medium text-lg text-white shadow-md transition-all hover:bg-blue-700">
+          <a
+            href="#contact"
+            className="mt-8 inline-block rounded-lg bg-blue-600 px-6 py-3 font-medium text-lg text-white shadow-md transition-all hover:bg-blue-700"
+          >
             Book a Demo
           </a>
         </div>
@@ -58,7 +65,11 @@ export default function B2BLanding() {
             </ul>
           </div>
           <div className="flex justify-center">
-            <div className="flex h-80 w-80 items-center justify-center rounded-lg bg-gray-200 shadow-md">
+            <div
+              className="flex h-80 w-80 items-center justify-center rounded-lg bg-gray-200 shadow-md"
+              aria-label="Graphic Placeholder"
+            >
+              <title>Graphic Placeholder</title>
               <span className="text-gray-500">Graphic Placeholder</span>
             </div>
           </div>
@@ -69,7 +80,11 @@ export default function B2BLanding() {
       <section id="automated-filing" className="bg-gray-50 py-24">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 md:grid-cols-2">
           <div className="order-2 flex justify-center md:order-1">
-            <div className="flex h-80 w-80 items-center justify-center rounded-lg bg-gray-200 shadow-md">
+            <div
+              className="flex h-80 w-80 items-center justify-center rounded-lg bg-gray-200 shadow-md"
+              aria-label="Graphic Placeholder"
+            >
+              <title>Graphic Placeholder</title>
               <span className="text-gray-500">Graphic Placeholder</span>
             </div>
           </div>
@@ -78,7 +93,8 @@ export default function B2BLanding() {
               Automated Filing
             </h3>
             <p className="mt-4 text-gray-700 text-lg leading-relaxed">
-              AI pre-fills all required TM filing forms, reducing human errors & eliminating repetitive data entry.
+              AI pre-fills all required TM filing forms, reducing human errors &
+              eliminating repetitive data entry.
             </p>
           </div>
         </div>
@@ -87,17 +103,20 @@ export default function B2BLanding() {
       {/* Call to Action */}
       <section id="contact" className="bg-blue-600 py-28 text-center text-white">
         <div className="mx-auto max-w-4xl px-6">
-          <h2 className="text-4xl font-bold leading-snug">
+          <h2 className="font-bold text-4xl leading-snug">
             See How AI Can Transform Your TM Practice
           </h2>
-          <a href="#contact" className="mt-8 inline-block rounded-lg bg-white px-6 py-3 font-semibold text-lg text-blue-600 shadow-md transition-all hover:bg-gray-200">
+          <a
+            href="#contact"
+            className="mt-8 inline-block rounded-lg bg-white px-6 py-3 font-semibold text-blue-600 text-lg shadow-md transition-all hover:bg-gray-200"
+          >
             Book a Demo
           </a>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 py-8 text-center text-lg text-gray-400">
+      <footer className="bg-gray-900 py-8 text-center text-gray-400 text-lg">
         &copy; {new Date().getFullYear()} TM-AI. All rights reserved.
       </footer>
     </div>
